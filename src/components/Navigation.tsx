@@ -32,7 +32,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-3">
+            <img
+              src="/Yale_LOGO.png"
+              alt="Yale School of Art"
+              className="h-10 w-auto"
+            />
             <span className="text-xl font-serif font-bold text-primary">Yale School of Art</span>
           </Link>
 
@@ -168,6 +173,14 @@ const Navigation = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex items-center gap-3 pb-6 border-b">
+                  <img
+                    src="/Yale_LOGO.png"
+                    alt="Yale School of Art"
+                    className="h-8 w-auto"
+                  />
+                  <span className="text-lg font-serif font-bold text-primary">Yale School of Art</span>
+                </div>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link
                     to="/about"

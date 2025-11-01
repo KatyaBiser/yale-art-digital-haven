@@ -10,6 +10,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
+            <img
+              src="/Yale_LOGO.png"
+              alt="Yale School of Art"
+              className="h-8 w-auto mb-4"
+            />
             <h3 className="text-lg font-serif font-semibold mb-4">Yale School of Art</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Leading graduate school offering MFA degrees in Graphic Design, Painting/Printmaking, Photography, and Sculpture.

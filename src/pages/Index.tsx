@@ -106,6 +106,11 @@ const Index = () => {
         </div>
         
         <div className="container mx-auto px-4 z-10 text-center">
+          <img
+            src="/Yale_LOGO.png"
+            alt="Yale University"
+            className="h-16 md:h-20 w-auto mx-auto mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 brightness-0 invert"
+          />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
             Welcome to Yale School of Art
           </h1>
