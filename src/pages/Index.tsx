@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, Users, Award, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
@@ -63,33 +63,6 @@ const Index = () => {
     },
   ];
 
-  const quickLinks = [
-    {
-      icon: BookOpen,
-      title: "Apply Now",
-      description: "Start your MFA application",
-      link: "/admissions",
-    },
-    {
-      icon: Users,
-      title: "Visit Campus",
-      description: "Schedule a tour",
-      link: "/contact",
-    },
-    {
-      icon: Award,
-      title: "Student Works",
-      description: "View our gallery",
-      link: "/works",
-    },
-    {
-      icon: Calendar,
-      title: "Events",
-      description: "See what's happening",
-      link: "/calendar",
-    },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -124,25 +97,6 @@ const Index = () => {
                 Learn More
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Links */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {quickLinks.map((item, index) => (
-              <Link
-                key={index}
-                to={item.link}
-                className="bg-card p-6 rounded-lg shadow-elegant hover:shadow-hover transition-smooth group"
-              >
-                <item.icon className="h-10 w-10 text-primary mb-4 transition-transform group-hover:scale-110" />
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-muted-foreground text-sm">{item.description}</p>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
