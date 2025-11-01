@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Yale School of Art - Website
 
-## Project info
+A modern, responsive website for Yale School of Art showcasing graduate programs in Art & Design.
 
-**URL**: https://lovable.dev/projects/fb341607-2bf4-44a5-9a3a-4d4db67033af
+## About
 
-## How can I edit this code?
+This website presents information about Yale School of Art's MFA programs including:
+- Graphic Design
+- Painting/Printmaking
+- Photography
+- Sculpture
 
-There are several ways of editing your application.
+**Live Site**: https://katyabiser.github.io/yale-art-digital-haven/
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/fb341607-2bf4-44a5-9a3a-4d4db67033af) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and dev server
+- **React** - UI framework
+- **TypeScript** - Type-safe JavaScript
+- **React Router** - Client-side routing (HashRouter for GitHub Pages)
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Re-usable component library
+- **Radix UI** - Accessible component primitives
 
-## How can I deploy this project?
+## Development
 
-Simply open [Lovable](https://lovable.dev/projects/fb341607-2bf4-44a5-9a3a-4d4db67033af) and click on Share -> Publish.
+### Prerequisites
 
-## Can I connect a custom domain to my Lovable project?
+- Node.js (v18 or higher)
+- npm or yarn
 
-Yes, you can!
+### Getting Started
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+# Clone the repository
+git clone https://github.com/KatyaBiser/yale-art-digital-haven.git
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Navigate to the project directory
+cd yale-art-digital-haven
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+The development server will start at `http://localhost:8080`
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## Deployment
+
+This project is automatically deployed to GitHub Pages using GitHub Actions.
+
+Every push to the `main` branch triggers a deployment workflow that:
+1. Installs dependencies
+2. Builds the project
+3. Deploys to GitHub Pages
+
+The site is available at: https://katyabiser.github.io/yale-art-digital-haven/
+
+### Manual Deployment
+
+To manually deploy:
+
+```sh
+# Build the project
+npm run build
+
+# The dist/ folder contains the production build
+# Commit and push changes to trigger automatic deployment
+git add .
+git commit -m "Your commit message"
+git push
+```
+
+## Project Structure
+
+```
+yale-art-digital-haven/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page components (routes)
+│   ├── assets/         # Images and static assets
+│   ├── App.tsx         # Main app component with routing
+│   └── main.tsx        # Application entry point
+├── public/             # Public static files
+├── .github/
+│   └── workflows/      # GitHub Actions workflows
+├── index.html          # HTML entry point
+├── vite.config.ts      # Vite configuration
+└── package.json        # Dependencies and scripts
+```
+
+## Contributing
+
+1. Create a new branch for your feature
+2. Make your changes
+3. Test locally with `npm run dev`
+4. Build and verify with `npm run build && npm run preview`
+5. Commit and push your changes
+6. Create a pull request
+
+## License
+
+This project is for educational purposes.
