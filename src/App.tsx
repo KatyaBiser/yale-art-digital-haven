@@ -21,7 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/yale-art-digital-haven">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
