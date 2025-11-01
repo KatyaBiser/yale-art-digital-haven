@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import yaleLogo from "@/assets/yale-logo.png";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -34,7 +35,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img
-              src="/Yale_LOGO.png"
+              src={yaleLogo}
               alt="Yale School of Art"
               className="h-10 w-auto"
             />
@@ -175,7 +176,7 @@ const Navigation = () => {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex items-center gap-3 pb-6 border-b">
                   <img
-                    src="/Yale_LOGO.png"
+                    src={yaleLogo}
                     alt="Yale School of Art"
                     className="h-8 w-auto"
                   />

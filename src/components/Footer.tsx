@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import yaleLogo from "@/assets/yale-logo.png";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
           {/* About */}
           <div>
             <img
-              src="/Yale_LOGO.png"
+              src={yaleLogo}
               alt="Yale School of Art"
               className="h-8 w-auto mb-4"
             />
