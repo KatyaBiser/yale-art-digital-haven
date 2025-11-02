@@ -13,7 +13,6 @@ const Calendar = () => {
   }, []);
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
-  const [selectedMonth, setSelectedMonth] = useState<string>("All");
   const events = [
     {
       title: "Visiting Artist Lecture: Marina Abramović",
@@ -65,19 +64,16 @@ const Calendar = () => {
     },
   ];
 
-  // Get unique categories and months
+  // Get unique categories
   const categories = ["All", ...Array.from(new Set(events.map(e => e.category)))];
-  const months = ["All", ...Array.from(new Set(events.map(e => new Date(e.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }))))];
 
-  // Filter events based on selected filters
+  // Filter events based on selected category
   const filteredEvents = useMemo(() => {
     return events.filter(event => {
       const matchesCategory = selectedCategory === "All" || event.category === selectedCategory;
-      const eventMonth = new Date(event.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-      const matchesMonth = selectedMonth === "All" || eventMonth === selectedMonth;
-      return matchesCategory && matchesMonth;
+      return matchesCategory;
     });
-  }, [selectedCategory, selectedMonth]);
+  }, [selectedCategory]);
 
   const upcomingEvents = filteredEvents.slice(0, 3);
   const allEvents = filteredEvents;
@@ -156,7 +152,7 @@ const Calendar = () => {
               </div>
 
               {/* Category Filters */}
-              <div className="mb-4">
+              <div>
                 <p className="text-sm text-muted-foreground mb-3">By Category:</p>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((category) => (
@@ -173,39 +169,19 @@ const Calendar = () => {
                 </div>
               </div>
 
-              {/* Month Filters */}
-              <div>
-                <p className="text-sm text-muted-foreground mb-3">By Month:</p>
-                <div className="flex flex-wrap gap-2">
-                  {months.map((month) => (
-                    <Button
-                      key={month}
-                      variant={selectedMonth === month ? "default" : "outline"}
-                      size="sm"
-                      onClick={() => setSelectedMonth(month)}
-                      className="transition-smooth"
-                    >
-                      {month}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-
               {/* Active Filters Summary */}
-              {(selectedCategory !== "All" || selectedMonth !== "All") && (
+              {selectedCategory !== "All" && (
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                   <div className="flex items-center justify-between">
                     <p className="text-sm">
                       Showing <strong>{filteredEvents.length}</strong> event{filteredEvents.length !== 1 ? 's' : ''}
                       {selectedCategory !== "All" && ` in ${selectedCategory}`}
-                      {selectedMonth !== "All" && ` for ${selectedMonth}`}
                     </p>
                     <Button
                       variant="ghost"
                       size="sm"
                       onClick={() => {
                         setSelectedCategory("All");
-                        setSelectedMonth("All");
                       }}
                     >
                       Clear Filters
@@ -215,58 +191,58 @@ const Calendar = () => {
               )}
             </div>
 
-            <Tabs defaultValue="upcoming" className="w-full">
-              <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-                <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-                <TabsTrigger value="all">All Events</TabsTrigger>
-              </TabsList>
-              
-              <TabsContent value="upcoming" className="space-y-6">
-                {upcomingEvents.length > 0 ? (
-                  upcomingEvents.map((event, index) => (
-                    <EventCard key={index} event={event} />
-                  ))
-                ) : (
-                  <div className="text-center py-12">
-                    <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                    <p className="text-lg text-muted-foreground">No upcoming events match your filters</p>
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        setSelectedCategory("All");
-                        setSelectedMonth("All");
-                      }}
-                      className="mt-4"
-                    >
-                      Clear Filters
-                    </Button>
-                  </div>
-                )}
-              </TabsContent>
+            <div className="max-w-4xl mx-auto">
+              <Tabs defaultValue="upcoming" className="w-full">
+                <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
+                  <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
+                  <TabsTrigger value="all">All Events</TabsTrigger>
+                </TabsList>
 
-              <TabsContent value="all" className="space-y-6">
-                {allEvents.length > 0 ? (
-                  allEvents.map((event, index) => (
-                    <EventCard key={index} event={event} />
-                  ))
-                ) : (
-                  <div className="text-center py-12">
-                    <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                    <p className="text-lg text-muted-foreground">No events match your filters</p>
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        setSelectedCategory("All");
-                        setSelectedMonth("All");
-                      }}
-                      className="mt-4"
-                    >
-                      Clear Filters
-                    </Button>
-                  </div>
-                )}
-              </TabsContent>
-            </Tabs>
+                <TabsContent value="upcoming" className="space-y-6">
+                  {upcomingEvents.length > 0 ? (
+                    upcomingEvents.map((event, index) => (
+                      <EventCard key={index} event={event} />
+                    ))
+                  ) : (
+                    <div className="text-center py-12">
+                      <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+                      <p className="text-lg text-muted-foreground">No upcoming events match your filters</p>
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          setSelectedCategory("All");
+                        }}
+                        className="mt-4"
+                      >
+                        Clear Filters
+                      </Button>
+                    </div>
+                  )}
+                </TabsContent>
+
+                <TabsContent value="all" className="space-y-6">
+                  {allEvents.length > 0 ? (
+                    allEvents.map((event, index) => (
+                      <EventCard key={index} event={event} />
+                    ))
+                  ) : (
+                    <div className="text-center py-12">
+                      <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+                      <p className="text-lg text-muted-foreground">No events match your filters</p>
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          setSelectedCategory("All");
+                        }}
+                        className="mt-4"
+                      >
+                        Clear Filters
+                      </Button>
+                    </div>
+                  )}
+                </TabsContent>
+              </Tabs>
+            </div>
           </div>
         </section>
 
