@@ -225,11 +225,11 @@ const Works = () => {
               )}
 
               {/* Image */}
-              <div className="flex items-center justify-center min-h-[60vh] max-h-[80vh] bg-black">
+              <div className="flex items-center justify-center h-[85vh] bg-black">
                 <img
                   src={currentWorks[selectedWorkIndex].image}
                   alt={currentWorks[selectedWorkIndex].title}
-                  className="max-h-[80vh] w-auto object-contain"
+                  className="h-full w-full object-contain"
                 />
               </div>
 
