@@ -1,12 +1,18 @@
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import graphicDesignImg from "@/assets/graphic-design.jpg";
 import paintingImg from "@/assets/painting.jpg";
 import photographyImg from "@/assets/photography.jpg";
 import sculptureImg from "@/assets/sculpture.jpg";
 
 const Works = () => {
+  const [selectedWorkIndex, setSelectedWorkIndex] = useState<number | null>(null);
+  const [currentWorks, setCurrentWorks] = useState<typeof allWorks>([]);
   const allWorks = [
     {
       title: "Urban Typography",
@@ -57,10 +63,31 @@ const Works = () => {
     return allWorks.filter(work => work.program === program);
   };
 
+  const handleWorkClick = (works: typeof allWorks, index: number) => {
+    setCurrentWorks(works);
+    setSelectedWorkIndex(index);
+  };
+
+  const handlePrevious = () => {
+    if (selectedWorkIndex !== null && selectedWorkIndex > 0) {
+      setSelectedWorkIndex(selectedWorkIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (selectedWorkIndex !== null && selectedWorkIndex < currentWorks.length - 1) {
+      setSelectedWorkIndex(selectedWorkIndex + 1);
+    }
+  };
+
   const WorksGrid = ({ works }: { works: typeof allWorks }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {works.map((work, index) => (
-        <div key={index} className="group cursor-pointer">
+        <div
+          key={index}
+          className="group cursor-pointer"
+          onClick={() => handleWorkClick(works, index)}
+        >
           <div className="aspect-square overflow-hidden rounded-lg bg-muted mb-4">
             <img
               src={work.image}
@@ -159,6 +186,69 @@ const Works = () => {
       </main>
 
       <Footer />
+
+      {/* Image Lightbox Modal */}
+      <Dialog open={selectedWorkIndex !== null} onOpenChange={() => setSelectedWorkIndex(null)}>
+        <DialogContent className="max-w-7xl w-full p-0 overflow-hidden">
+          {selectedWorkIndex !== null && currentWorks[selectedWorkIndex] && (
+            <div className="relative bg-black">
+              {/* Close button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white"
+                onClick={() => setSelectedWorkIndex(null)}
+              >
+                <X className="h-6 w-6" />
+              </Button>
+
+              {/* Navigation buttons */}
+              {selectedWorkIndex > 0 && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                  onClick={handlePrevious}
+                >
+                  <ChevronLeft className="h-8 w-8" />
+                </Button>
+              )}
+              {selectedWorkIndex < currentWorks.length - 1 && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                  onClick={handleNext}
+                >
+                  <ChevronRight className="h-8 w-8" />
+                </Button>
+              )}
+
+              {/* Image */}
+              <div className="flex items-center justify-center min-h-[60vh] max-h-[80vh] bg-black">
+                <img
+                  src={currentWorks[selectedWorkIndex].image}
+                  alt={currentWorks[selectedWorkIndex].title}
+                  className="max-h-[80vh] w-auto object-contain"
+                />
+              </div>
+
+              {/* Metadata */}
+              <div className="bg-white p-6">
+                <h3 className="text-2xl font-semibold mb-2">
+                  {currentWorks[selectedWorkIndex].title}
+                </h3>
+                <p className="text-lg text-muted-foreground mb-1">
+                  {currentWorks[selectedWorkIndex].artist}
+                </p>
+                <p className="text-muted-foreground">
+                  {currentWorks[selectedWorkIndex].program} • {currentWorks[selectedWorkIndex].year}
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
