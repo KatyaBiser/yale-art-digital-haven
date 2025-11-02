@@ -4,20 +4,58 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Search as SearchIcon } from "lucide-react";
-import { searchableContent } from "@/data/searchableContent";
+import { searchableContent, SearchableItem } from "@/data/searchableContent";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("q") || "";
   const [searchQuery, setSearchQuery] = useState(query);
   const [results, setResults] = useState<typeof searchableContent>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   useEffect(() => {
     if (query) {
       performSearch(query);
     }
   }, [query]);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Esc to clear search
+      if (e.key === 'Escape') {
+        setSearchQuery("");
+        setSearchParams({});
+        setResults([]);
+        setSelectedCategory("All");
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [setSearchParams]);
+
+  // Highlight text matches
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return text;
+
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return (
+      <>
+        {parts.map((part, index) =>
+          part.toLowerCase() === query.toLowerCase() ? (
+            <mark key={index} className="bg-yellow-200 dark:bg-yellow-900/50 font-semibold">
+              {part}
+            </mark>
+          ) : (
+            <span key={index}>{part}</span>
+          )
+        )}
+      </>
+    );
+  };
 
   const performSearch = (searchTerm: string) => {
     if (!searchTerm.trim()) {
@@ -45,6 +83,18 @@ const Search = () => {
       performSearch(searchQuery);
     }
   };
+
+  // Get unique categories with counts
+  const categories = ["All", ...Array.from(new Set(searchableContent.map(item => item.category)))];
+  const getCategoryCount = (category: string) => {
+    if (category === "All") return results.length;
+    return results.filter(item => item.category === category).length;
+  };
+
+  // Filter results by selected category
+  const filteredResults = selectedCategory === "All"
+    ? results
+    : results.filter(item => item.category === selectedCategory);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -89,6 +139,27 @@ const Search = () => {
                       Try different keywords or browse our <Link to="/" className="text-primary hover:underline">homepage</Link> to find what you're looking for.
                     </p>
                   )}
+
+                  {/* Category Filters */}
+                  {results.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-6">
+                      {categories.map((category) => {
+                        const count = getCategoryCount(category);
+                        if (count === 0 && category !== "All") return null;
+                        return (
+                          <Button
+                            key={category}
+                            variant={selectedCategory === category ? "default" : "outline"}
+                            size="sm"
+                            onClick={() => setSelectedCategory(category)}
+                            className="transition-smooth"
+                          >
+                            {category} ({count})
+                          </Button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -103,7 +174,7 @@ const Search = () => {
               )}
 
               <div className="space-y-4">
-                {results.map((item, index) => (
+                {filteredResults.map((item, index) => (
                   <Card key={index} className="transition-smooth hover:shadow-hover">
                     <CardContent className="p-6">
                       <Link to={item.path}>
@@ -115,10 +186,10 @@ const Search = () => {
                               </span>
                             </div>
                             <h3 className="text-xl font-semibold mb-2 hover:text-primary transition-smooth">
-                              {item.title}
+                              {highlightText(item.title, query)}
                             </h3>
                             <p className="text-muted-foreground line-clamp-2">
-                              {item.content}
+                              {highlightText(item.content, query)}
                             </p>
                             {item.tags && item.tags.length > 0 && (
                               <div className="flex flex-wrap gap-2 mt-3">
@@ -127,7 +198,7 @@ const Search = () => {
                                     key={tagIndex}
                                     className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded"
                                   >
-                                    {tag}
+                                    {highlightText(tag, query)}
                                   </span>
                                 ))}
                               </div>
