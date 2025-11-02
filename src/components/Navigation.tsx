@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import yaleLogo from "@/assets/yale-logo.png";
@@ -17,9 +17,20 @@ import { Input } from "@/components/ui/input";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
 
   const programs = [
     { name: "Graphic Design", path: "/programs/graphic-design" },
@@ -188,6 +199,14 @@ const Navigation = () => {
                 </Link>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link
+                    to="/search"
+                    className="flex items-center gap-2 text-lg font-medium hover:text-primary transition-smooth"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <Search className="h-5 w-5" />
+                    Search
+                  </Link>
+                  <Link
                     to="/about"
                     className="text-lg font-medium hover:text-primary transition-smooth"
                     onClick={() => setIsOpen(false)}
@@ -260,12 +279,16 @@ const Navigation = () => {
         {/* Search Bar */}
         {searchOpen && (
           <div className="pb-4 animate-in slide-in-from-top-2">
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="max-w-md"
-              autoFocus
-            />
+            <form onSubmit={handleSearch}>
+              <Input
+                type="search"
+                placeholder="Search for programs, faculty, news..."
+                className="max-w-md"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                autoFocus
+              />
+            </form>
           </div>
         )}
       </div>
