@@ -78,10 +78,10 @@ const Calendar = () => {
   const upcomingEvents = filteredEvents.slice(0, 3);
   const allEvents = filteredEvents;
 
-  // Get category count for display
+  // Get category count for display (always from full events array, not filtered)
   const getCategoryCount = (category: string) => {
-    if (category === "All") return filteredEvents.length;
-    return filteredEvents.filter(e => e.category === category).length;
+    if (category === "All") return events.length;
+    return events.filter(e => e.category === category).length;
   };
 
   const EventCard = ({ event }: { event: typeof events[0] }) => (
@@ -163,7 +163,7 @@ const Calendar = () => {
                       onClick={() => setSelectedCategory(category)}
                       className="transition-smooth"
                     >
-                      {category} {category !== "All" && `(${getCategoryCount(category)})`}
+                      {category} ({getCategoryCount(category)})
                     </Button>
                   ))}
                 </div>
