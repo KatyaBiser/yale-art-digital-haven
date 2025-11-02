@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Building2, Users, Image as ImageIcon, Wrench } from "lucide-react";
 
 const Contact = () => {
   const contactInfo = [
@@ -44,6 +44,65 @@ const Contact = () => {
     },
   ];
 
+  const departmentContacts = [
+    {
+      icon: Building2,
+      title: "Graphic Design",
+      phone: "(203) 432-2610",
+      email: "graphicdesign@yale.edu",
+      contact: "Dr. Sarah Chen, Director",
+    },
+    {
+      icon: Building2,
+      title: "Painting/Printmaking",
+      phone: "(203) 432-2615",
+      email: "painting@yale.edu",
+      contact: "Prof. Michael Rodriguez, Chair",
+    },
+    {
+      icon: Building2,
+      title: "Photography",
+      phone: "(203) 432-2620",
+      email: "photography@yale.edu",
+      contact: "Dr. Emily Thompson, Director",
+    },
+    {
+      icon: Building2,
+      title: "Sculpture",
+      phone: "(203) 432-2625",
+      email: "sculpture@yale.edu",
+      contact: "Prof. David Kim, Chair",
+    },
+    {
+      icon: ImageIcon,
+      title: "Gallery & Exhibitions",
+      phone: "(203) 432-2630",
+      email: "gallery@yale.edu",
+      contact: "Exhibitions Coordinator",
+    },
+    {
+      icon: Users,
+      title: "Student Services",
+      phone: "(203) 432-2635",
+      email: "studentservices@yale.edu",
+      contact: "Student Affairs Office",
+    },
+    {
+      icon: Wrench,
+      title: "Technical Support",
+      phone: "(203) 432-2640",
+      email: "techsupport@yale.edu",
+      contact: "Facilities & Technical Services",
+    },
+    {
+      icon: Building2,
+      title: "Academic Advising",
+      phone: "(203) 432-2645",
+      email: "advising@yale.edu",
+      contact: "Academic Affairs",
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -66,6 +125,7 @@ const Contact = () => {
         {/* Contact Info */}
         <section className="py-16">
           <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-serif font-bold mb-8 text-center">General Information</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {contactInfo.map((info, index) => (
                 <Card key={index}>
@@ -80,6 +140,38 @@ const Contact = () => {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+
+            {/* Department Contacts */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-serif font-bold mb-8 text-center">Department Contacts</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {departmentContacts.map((dept, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-6">
+                      <dept.icon className="h-8 w-8 text-primary mb-3" />
+                      <h3 className="text-lg font-semibold mb-3">{dept.title}</h3>
+                      <div className="space-y-2">
+                        <p className="text-xs text-muted-foreground">{dept.contact}</p>
+                        <a
+                          href={`tel:${dept.phone}`}
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-smooth"
+                        >
+                          <Phone className="h-3 w-3" />
+                          {dept.phone}
+                        </a>
+                        <a
+                          href={`mailto:${dept.email}`}
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-smooth break-all"
+                        >
+                          <Mail className="h-3 w-3 flex-shrink-0" />
+                          {dept.email}
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
 
             {/* Contact Form */}
