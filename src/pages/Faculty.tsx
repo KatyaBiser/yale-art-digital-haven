@@ -2,6 +2,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail } from "lucide-react";
+import drSarahChen from "@/assets/Teachers/Dr-Sarah-Chen.png";
+import profMichaelRodriguez from "@/assets/Teachers/Prof-Michael-Rodriguez.png";
+import drEmilyThompson from "@/assets/Teachers/Dr-Emily-Thompson.png";
+import profDavidKim from "@/assets/Teachers/Prof-David-Kim.png";
+import drJenniferMartinez from "@/assets/Teachers/Dr-Jennifer-Martinez.png";
+import profRobertJohnson from "@/assets/Teachers/Prof-Robert-Johnson.png";
+import drLisaAnderson from "@/assets/Teachers/Dr-Lisa-Anderson.png";
+import profJamesWilson from "@/assets/Teachers/Prof-James-Wilson.png";
 
 const Faculty = () => {
   const facultyMembers = [
@@ -10,48 +18,56 @@ const Faculty = () => {
       position: "Director of Graphic Design",
       specialty: "Typography, Digital Design",
       email: "sarah.chen@yale.edu",
+      image: drSarahChen,
     },
     {
       name: "Prof. Michael Rodriguez",
       position: "Chair of Painting/Printmaking",
       specialty: "Contemporary Painting, Printmaking Techniques",
       email: "michael.rodriguez@yale.edu",
+      image: profMichaelRodriguez,
     },
     {
       name: "Dr. Emily Thompson",
       position: "Photography Program Director",
       specialty: "Documentary Photography, Visual Culture",
       email: "emily.thompson@yale.edu",
+      image: drEmilyThompson,
     },
     {
       name: "Prof. David Kim",
       position: "Sculpture Department Chair",
       specialty: "Installation Art, Public Sculpture",
       email: "david.kim@yale.edu",
+      image: profDavidKim,
     },
     {
       name: "Dr. Jennifer Martinez",
       position: "Associate Professor",
       specialty: "Art History, Critical Theory",
       email: "jennifer.martinez@yale.edu",
+      image: drJenniferMartinez,
     },
     {
       name: "Prof. Robert Johnson",
       position: "Senior Lecturer",
       specialty: "Digital Media, Interactive Art",
       email: "robert.johnson@yale.edu",
+      image: profRobertJohnson,
     },
     {
       name: "Dr. Lisa Anderson",
       position: "Assistant Professor",
       specialty: "Contemporary Art, Curatorial Studies",
       email: "lisa.anderson@yale.edu",
+      image: drLisaAnderson,
     },
     {
       name: "Prof. James Wilson",
       position: "Visiting Professor",
       specialty: "Experimental Film, Video Art",
       email: "james.wilson@yale.edu",
+      image: profJamesWilson,
     },
   ];
 
@@ -95,18 +111,18 @@ const Faculty = () => {
               {facultyMembers.map((member, index) => (
                 <Card key={index} className="transition-smooth hover:shadow-hover">
                   <CardContent className="p-6">
-                    <div className="aspect-square bg-muted rounded-lg mb-4 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-2xl font-serif font-bold text-primary">
-                          {member.name.split(' ').map(n => n[0]).join('')}
-                        </span>
-                      </div>
+                    <div className="aspect-square bg-muted rounded-lg mb-4 overflow-hidden">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                     <p className="text-sm text-primary font-medium mb-2">{member.position}</p>
                     <p className="text-sm text-muted-foreground mb-4">{member.specialty}</p>
-                    <a 
-                      href={`mailto:${member.email}`} 
+                    <a
+                      href={`mailto:${member.email}`}
                       className="flex items-center text-sm text-muted-foreground hover:text-primary transition-smooth"
                     >
                       <Mail className="h-4 w-4 mr-2" />
