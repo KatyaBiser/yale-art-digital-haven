@@ -88,7 +88,10 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[state=open]:bg-muted data-[state=open]:text-primary">
+                <NavigationMenuTrigger
+                  onClick={() => navigate('/programs')}
+                  className="hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[state=open]:bg-muted data-[state=open]:text-primary cursor-pointer"
+                >
                   Programs
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
