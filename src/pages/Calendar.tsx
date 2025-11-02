@@ -1,11 +1,15 @@
+import { useState, useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar as CalendarIcon, MapPin, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Calendar as CalendarIcon, MapPin, Clock, Filter } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Calendar = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedMonth, setSelectedMonth] = useState<string>("All");
   const events = [
     {
       title: "Visiting Artist Lecture: Marina Abramović",
@@ -57,8 +61,28 @@ const Calendar = () => {
     },
   ];
 
-  const upcomingEvents = events.slice(0, 3);
-  const allEvents = events;
+  // Get unique categories and months
+  const categories = ["All", ...Array.from(new Set(events.map(e => e.category)))];
+  const months = ["All", ...Array.from(new Set(events.map(e => new Date(e.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }))))];
+
+  // Filter events based on selected filters
+  const filteredEvents = useMemo(() => {
+    return events.filter(event => {
+      const matchesCategory = selectedCategory === "All" || event.category === selectedCategory;
+      const eventMonth = new Date(event.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      const matchesMonth = selectedMonth === "All" || eventMonth === selectedMonth;
+      return matchesCategory && matchesMonth;
+    });
+  }, [selectedCategory, selectedMonth]);
+
+  const upcomingEvents = filteredEvents.slice(0, 3);
+  const allEvents = filteredEvents;
+
+  // Get category count for display
+  const getCategoryCount = (category: string) => {
+    if (category === "All") return filteredEvents.length;
+    return filteredEvents.filter(e => e.category === category).length;
+  };
 
   const EventCard = ({ event }: { event: typeof events[0] }) => (
     <Card className="transition-smooth hover:shadow-hover">
@@ -120,6 +144,73 @@ const Calendar = () => {
         {/* Calendar Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
+            {/* Filters */}
+            <div className="max-w-4xl mx-auto mb-8">
+              <div className="flex items-center gap-2 mb-4">
+                <Filter className="h-5 w-5 text-primary" />
+                <h3 className="text-lg font-semibold">Filter Events</h3>
+              </div>
+
+              {/* Category Filters */}
+              <div className="mb-4">
+                <p className="text-sm text-muted-foreground mb-3">By Category:</p>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((category) => (
+                    <Button
+                      key={category}
+                      variant={selectedCategory === category ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedCategory(category)}
+                      className="transition-smooth"
+                    >
+                      {category} {category !== "All" && `(${getCategoryCount(category)})`}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Month Filters */}
+              <div>
+                <p className="text-sm text-muted-foreground mb-3">By Month:</p>
+                <div className="flex flex-wrap gap-2">
+                  {months.map((month) => (
+                    <Button
+                      key={month}
+                      variant={selectedMonth === month ? "default" : "outline"}
+                      size="sm"
+                      onClick={() => setSelectedMonth(month)}
+                      className="transition-smooth"
+                    >
+                      {month}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Active Filters Summary */}
+              {(selectedCategory !== "All" || selectedMonth !== "All") && (
+                <div className="mt-4 p-4 bg-muted/50 rounded-lg">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm">
+                      Showing <strong>{filteredEvents.length}</strong> event{filteredEvents.length !== 1 ? 's' : ''}
+                      {selectedCategory !== "All" && ` in ${selectedCategory}`}
+                      {selectedMonth !== "All" && ` for ${selectedMonth}`}
+                    </p>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => {
+                        setSelectedCategory("All");
+                        setSelectedMonth("All");
+                      }}
+                    >
+                      Clear Filters
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <Tabs defaultValue="upcoming" className="w-full">
               <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
                 <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
@@ -127,15 +218,49 @@ const Calendar = () => {
               </TabsList>
               
               <TabsContent value="upcoming" className="space-y-6">
-                {upcomingEvents.map((event, index) => (
-                  <EventCard key={index} event={event} />
-                ))}
+                {upcomingEvents.length > 0 ? (
+                  upcomingEvents.map((event, index) => (
+                    <EventCard key={index} event={event} />
+                  ))
+                ) : (
+                  <div className="text-center py-12">
+                    <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+                    <p className="text-lg text-muted-foreground">No upcoming events match your filters</p>
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setSelectedCategory("All");
+                        setSelectedMonth("All");
+                      }}
+                      className="mt-4"
+                    >
+                      Clear Filters
+                    </Button>
+                  </div>
+                )}
               </TabsContent>
-              
+
               <TabsContent value="all" className="space-y-6">
-                {allEvents.map((event, index) => (
-                  <EventCard key={index} event={event} />
-                ))}
+                {allEvents.length > 0 ? (
+                  allEvents.map((event, index) => (
+                    <EventCard key={index} event={event} />
+                  ))
+                ) : (
+                  <div className="text-center py-12">
+                    <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
+                    <p className="text-lg text-muted-foreground">No events match your filters</p>
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        setSelectedCategory("All");
+                        setSelectedMonth("All");
+                      }}
+                      className="mt-4"
+                    >
+                      Clear Filters
+                    </Button>
+                  </div>
+                )}
               </TabsContent>
             </Tabs>
           </div>
