@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import yaleLogo from "@/assets/yale-logo.png";
 import {
@@ -174,14 +174,18 @@ const Navigation = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex items-center gap-3 pb-6 border-b">
+                <Link
+                  to="/"
+                  className="flex items-center gap-3 pb-6 border-b"
+                  onClick={() => setIsOpen(false)}
+                >
                   <img
                     src={yaleLogo}
                     alt="Yale School of Art"
                     className="h-8 w-auto"
                   />
                   <span className="text-lg font-serif font-bold text-primary">Yale School of Art</span>
-                </div>
+                </Link>
                 <nav className="flex flex-col gap-4 mt-8">
                   <Link
                     to="/about"
