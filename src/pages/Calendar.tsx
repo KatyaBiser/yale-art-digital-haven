@@ -13,6 +13,7 @@ const Calendar = () => {
   }, []);
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [activeTab, setActiveTab] = useState<string>("upcoming");
   const events = [
     {
       title: "Visiting Artist Lecture: Marina Abramović",
@@ -67,21 +68,33 @@ const Calendar = () => {
   // Get unique categories
   const categories = ["All", ...Array.from(new Set(events.map(e => e.category)))];
 
-  // Filter events based on selected category
-  const filteredEvents = useMemo(() => {
-    return events.filter(event => {
+  // Separate events into upcoming and past based on current date
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset time to start of day for comparison
+
+  const upcomingEventsAll = events.filter(event => new Date(event.date) >= today);
+  const pastEventsAll = events.filter(event => new Date(event.date) < today);
+
+  // Filter events based on selected category and active tab
+  const filteredUpcomingEvents = useMemo(() => {
+    return upcomingEventsAll.filter(event => {
       const matchesCategory = selectedCategory === "All" || event.category === selectedCategory;
       return matchesCategory;
     });
-  }, [selectedCategory]);
+  }, [selectedCategory, upcomingEventsAll]);
 
-  const upcomingEvents = filteredEvents.slice(0, 3);
-  const allEvents = filteredEvents;
+  const filteredPastEvents = useMemo(() => {
+    return pastEventsAll.filter(event => {
+      const matchesCategory = selectedCategory === "All" || event.category === selectedCategory;
+      return matchesCategory;
+    });
+  }, [selectedCategory, pastEventsAll]);
 
-  // Get category count for display (always from full events array, not filtered)
+  // Get category count for display based on active tab
   const getCategoryCount = (category: string) => {
-    if (category === "All") return events.length;
-    return events.filter(e => e.category === category).length;
+    const sourceEvents = activeTab === "upcoming" ? upcomingEventsAll : pastEventsAll;
+    if (category === "All") return sourceEvents.length;
+    return sourceEvents.filter(e => e.category === category).length;
   };
 
   const EventCard = ({ event }: { event: typeof events[0] }) => (
@@ -174,7 +187,7 @@ const Calendar = () => {
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                   <div className="flex items-center justify-between">
                     <p className="text-sm">
-                      Showing <strong>{filteredEvents.length}</strong> event{filteredEvents.length !== 1 ? 's' : ''}
+                      Showing <strong>{activeTab === "upcoming" ? filteredUpcomingEvents.length : filteredPastEvents.length}</strong> event{(activeTab === "upcoming" ? filteredUpcomingEvents.length : filteredPastEvents.length) !== 1 ? 's' : ''}
                       {selectedCategory !== "All" && ` in ${selectedCategory}`}
                     </p>
                     <Button
@@ -192,15 +205,15 @@ const Calendar = () => {
             </div>
 
             <div className="max-w-4xl mx-auto">
-              <Tabs defaultValue="upcoming" className="w-full">
+              <Tabs defaultValue="upcoming" className="w-full" onValueChange={setActiveTab}>
                 <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
                   <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-                  <TabsTrigger value="all">All Events</TabsTrigger>
+                  <TabsTrigger value="past">Past Events</TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="upcoming" className="space-y-6">
-                  {upcomingEvents.length > 0 ? (
-                    upcomingEvents.map((event, index) => (
+                  {filteredUpcomingEvents.length > 0 ? (
+                    filteredUpcomingEvents.map((event, index) => (
                       <EventCard key={index} event={event} />
                     ))
                   ) : (
@@ -220,15 +233,15 @@ const Calendar = () => {
                   )}
                 </TabsContent>
 
-                <TabsContent value="all" className="space-y-6">
-                  {allEvents.length > 0 ? (
-                    allEvents.map((event, index) => (
+                <TabsContent value="past" className="space-y-6">
+                  {filteredPastEvents.length > 0 ? (
+                    filteredPastEvents.map((event, index) => (
                       <EventCard key={index} event={event} />
                     ))
                   ) : (
                     <div className="text-center py-12">
                       <CalendarIcon className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
-                      <p className="text-lg text-muted-foreground">No events match your filters</p>
+                      <p className="text-lg text-muted-foreground">No past events match your filters</p>
                       <Button
                         variant="outline"
                         onClick={() => {
