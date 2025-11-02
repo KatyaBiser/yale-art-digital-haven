@@ -96,20 +96,22 @@ const ProgramsOverview = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
               {programs.map((program) => (
                 <Card key={program.id} className="overflow-hidden transition-smooth hover:shadow-hover">
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={program.image}
-                      alt={program.title}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-1">
-                        {program.title}
-                      </h2>
-                      <p className="text-white/90 text-sm">{program.subtitle}</p>
+                  <Link to={`/programs/${program.id}`}>
+                    <div className="relative h-64 overflow-hidden cursor-pointer">
+                      <img
+                        src={program.image}
+                        alt={program.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-1">
+                          {program.title}
+                        </h2>
+                        <p className="text-white/90 text-sm">{program.subtitle}</p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
 
                   <CardContent className="p-6">
                     <p className="text-muted-foreground mb-4 leading-relaxed">
