@@ -5,56 +5,85 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import graphicDesignImg from "@/assets/graphic-design.jpg";
-import paintingImg from "@/assets/painting.jpg";
-import photographyImg from "@/assets/photography.jpg";
-import sculptureImg from "@/assets/sculpture.jpg";
+
+// Import images from Students Work folder
+import urbanTypographyImg from "@/assets/Students Work/Graphic Design/Urban Typography/Typography-Exhibition.jpg";
+
+import abstractExpressions1 from "@/assets/Students Work/Painting/Abstract Expressions/Marie-Paterova-2048x-1.jpg";
+import abstractExpressions2 from "@/assets/Students Work/Painting/Abstract Expressions/Marie-Paterova-2048x-2.jpg";
+import abstractExpressions3 from "@/assets/Students Work/Painting/Abstract Expressions/Marie-Paterova-2048x-3.jpg";
+import abstractExpressions4 from "@/assets/Students Work/Painting/Abstract Expressions/Marie-Paterova-2048x-4.jpg";
+
+import streetNarratives1 from "@/assets/Students Work/Photography/Street Narratives/Photography-Festival-Exhibition-1.jpg";
+import streetNarratives2 from "@/assets/Students Work/Photography/Street Narratives/Photography-Festival-Exhibition-2.jpg";
+
+import spatialForms1 from "@/assets/Students Work/Sculpture/Spatial Forms/Mikulas-Juracek-2025-1.jpg";
+import spatialForms2 from "@/assets/Students Work/Sculpture/Spatial Forms/Mikulas-Juracek-2025-2.jpg";
+import spatialForms3 from "@/assets/Students Work/Sculpture/Spatial Forms/Mikulas-Juracek-2025-3.jpg";
+import spatialForms4 from "@/assets/Students Work/Sculpture/Spatial Forms/Mikulas-Juracek-2025-4.jpg";
+
+import digitalIdentities1 from "@/assets/Students Work/Graphic Design/Digital Identities/Facebook-Image-1.jpg";
+import digitalIdentities2 from "@/assets/Students Work/Graphic Design/Digital Identities/Facebook-Image-2.jpg";
+
+import colorStudies1 from "@/assets/Students Work/Painting/Color Studies/Anezka-Abrtova-Instalace-1.jpg";
+import colorStudies2 from "@/assets/Students Work/Painting/Color Studies/Anezka-Abrtova-Instalace-2.jpg";
+import colorStudies3 from "@/assets/Students Work/Painting/Color Studies/Anezka-Abrtova-Instalace-3.jpg";
+import colorStudies4 from "@/assets/Students Work/Painting/Color Studies/Anezka-Abrtova-Instalace-4.jpg";
+
+type Work = {
+  title: string;
+  artist: string;
+  program: string;
+  year: string;
+  images: string[];
+};
 
 const Works = () => {
   const [selectedWorkIndex, setSelectedWorkIndex] = useState<number | null>(null);
-  const [currentWorks, setCurrentWorks] = useState<typeof allWorks>([]);
-  const allWorks = [
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [currentWorks, setCurrentWorks] = useState<Work[]>([]);
+  const allWorks: Work[] = [
     {
       title: "Urban Typography",
       artist: "Maria Chen",
       program: "Graphic Design",
       year: "2024",
-      image: graphicDesignImg,
+      images: [urbanTypographyImg],
     },
     {
       title: "Abstract Expressions",
       artist: "James Rodriguez",
       program: "Painting",
       year: "2024",
-      image: paintingImg,
+      images: [abstractExpressions1, abstractExpressions2, abstractExpressions3, abstractExpressions4],
     },
     {
       title: "Street Narratives",
       artist: "Sarah Thompson",
       program: "Photography",
       year: "2024",
-      image: photographyImg,
+      images: [streetNarratives1, streetNarratives2],
     },
     {
       title: "Spatial Forms",
       artist: "David Kim",
       program: "Sculpture",
       year: "2024",
-      image: sculptureImg,
+      images: [spatialForms1, spatialForms2, spatialForms3, spatialForms4],
     },
     {
       title: "Digital Identities",
       artist: "Alex Martinez",
       program: "Graphic Design",
       year: "2023",
-      image: graphicDesignImg,
+      images: [digitalIdentities1, digitalIdentities2],
     },
     {
       title: "Color Studies",
       artist: "Emily Johnson",
       program: "Painting",
       year: "2023",
-      image: paintingImg,
+      images: [colorStudies3, colorStudies2, colorStudies1, colorStudies4],
     },
   ];
 
@@ -63,24 +92,28 @@ const Works = () => {
     return allWorks.filter(work => work.program === program);
   };
 
-  const handleWorkClick = (works: typeof allWorks, index: number) => {
+  const handleWorkClick = (works: Work[], index: number) => {
     setCurrentWorks(works);
     setSelectedWorkIndex(index);
+    setCurrentImageIndex(0); // Reset to first image when selecting a work
   };
 
   const handlePrevious = () => {
-    if (selectedWorkIndex !== null && selectedWorkIndex > 0) {
-      setSelectedWorkIndex(selectedWorkIndex - 1);
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
     }
   };
 
   const handleNext = () => {
-    if (selectedWorkIndex !== null && selectedWorkIndex < currentWorks.length - 1) {
-      setSelectedWorkIndex(selectedWorkIndex + 1);
+    if (selectedWorkIndex !== null && currentWorks[selectedWorkIndex]) {
+      const currentWork = currentWorks[selectedWorkIndex];
+      if (currentImageIndex < currentWork.images.length - 1) {
+        setCurrentImageIndex(currentImageIndex + 1);
+      }
     }
   };
 
-  const WorksGrid = ({ works }: { works: typeof allWorks }) => (
+  const WorksGrid = ({ works }: { works: Work[] }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {works.map((work, index) => (
         <div
@@ -90,7 +123,7 @@ const Works = () => {
         >
           <div className="aspect-square overflow-hidden rounded-lg bg-muted mb-4">
             <img
-              src={work.image}
+              src={work.images[0]}
               alt={work.title}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
@@ -202,36 +235,47 @@ const Works = () => {
                 <X className="h-6 w-6" />
               </Button>
 
-              {/* Navigation buttons */}
-              {selectedWorkIndex > 0 && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
-                  onClick={handlePrevious}
-                >
-                  <ChevronLeft className="h-8 w-8" />
-                </Button>
-              )}
-              {selectedWorkIndex < currentWorks.length - 1 && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
-                  onClick={handleNext}
-                >
-                  <ChevronRight className="h-8 w-8" />
-                </Button>
+              {/* Navigation buttons - only show if work has multiple images */}
+              {currentWorks[selectedWorkIndex].images.length > 1 && (
+                <>
+                  {currentImageIndex > 0 && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                      onClick={handlePrevious}
+                    >
+                      <ChevronLeft className="h-8 w-8" />
+                    </Button>
+                  )}
+                  {currentImageIndex < currentWorks[selectedWorkIndex].images.length - 1 && (
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                      onClick={handleNext}
+                    >
+                      <ChevronRight className="h-8 w-8" />
+                    </Button>
+                  )}
+                </>
               )}
 
               {/* Image */}
               <div className="flex items-center justify-center h-[85vh] bg-black">
                 <img
-                  src={currentWorks[selectedWorkIndex].image}
-                  alt={currentWorks[selectedWorkIndex].title}
+                  src={currentWorks[selectedWorkIndex].images[currentImageIndex]}
+                  alt={`${currentWorks[selectedWorkIndex].title} - Image ${currentImageIndex + 1}`}
                   className="h-full w-full object-contain"
                 />
               </div>
+
+              {/* Image counter indicator */}
+              {currentWorks[selectedWorkIndex].images.length > 1 && (
+                <div className="absolute top-4 left-4 z-10 bg-black/50 text-white px-3 py-1 rounded-md text-sm">
+                  {currentImageIndex + 1} / {currentWorks[selectedWorkIndex].images.length}
+                </div>
+              )}
 
               {/* Metadata */}
               <div className="bg-white p-6">
