@@ -225,18 +225,28 @@ const Contact = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-serif font-bold mb-8 text-center">Visit Our Campus</h2>
             <div className="max-w-5xl mx-auto">
-              <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-                <div className="w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-                    <p className="text-muted-foreground">
-                      Interactive map would be displayed here
-                    </p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      1156 Chapel Street, New Haven, CT 06511
-                    </p>
-                  </div>
-                </div>
+              <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.9234567890123!2d-72.9279!3d41.3083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7d9b1e5f5f5f5%3A0x1234567890abcdef!2s1156%20Chapel%20St%2C%20New%20Haven%2C%20CT%2006511!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Yale School of Art Location"
+                ></iframe>
+              </div>
+              <div className="mt-4 text-center">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=1156+Chapel+Street,New+Haven,CT+06511"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline inline-flex items-center gap-2"
+                >
+                  <MapPin className="h-4 w-4" />
+                  Get Directions
+                </a>
               </div>
             </div>
           </div>
