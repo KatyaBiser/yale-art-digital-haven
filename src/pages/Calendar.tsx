@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +8,10 @@ import { Calendar as CalendarIcon, MapPin, Clock, Filter } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Calendar = () => {
+  useEffect(() => {
+    document.title = "Calendar - Yale School of Art";
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedMonth, setSelectedMonth] = useState<string>("All");
   const events = [

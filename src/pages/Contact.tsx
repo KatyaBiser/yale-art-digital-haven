@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,6 +9,10 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock, Building2, Users, Image as ImageIcon, Wrench } from "lucide-react";
 
 const Contact = () => {
+  useEffect(() => {
+    document.title = "Contact Us - Yale School of Art";
+  }, []);
+
   const contactInfo = [
     {
       icon: MapPin,

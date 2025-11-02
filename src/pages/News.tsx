@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import NewsCard from "@/components/NewsCard";
@@ -6,6 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 
 const News = () => {
+  useEffect(() => {
+    document.title = "News & Events - Yale School of Art";
+  }, []);
+
   const newsItems = [
     {
       title: "Fall 2024 Exhibition Opens at Yale University Art Gallery",

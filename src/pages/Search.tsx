@@ -16,6 +16,10 @@ const Search = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   useEffect(() => {
+    document.title = "Search - Yale School of Art";
+  }, []);
+
+  useEffect(() => {
     if (query) {
       performSearch(query);
     }

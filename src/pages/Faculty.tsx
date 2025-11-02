@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,6 +13,10 @@ import drLisaAnderson from "@/assets/Teachers/Dr-Lisa-Anderson.png";
 import profJamesWilson from "@/assets/Teachers/Prof-James-Wilson.png";
 
 const Faculty = () => {
+  useEffect(() => {
+    document.title = "Faculty & Staff - Yale School of Art";
+  }, []);
+
   const facultyMembers = [
     {
       name: "Dr. Sarah Chen",

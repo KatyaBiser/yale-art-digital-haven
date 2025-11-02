@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -136,6 +137,10 @@ const Programs = () => {
   }
 
   const program = programsData[programId];
+
+  useEffect(() => {
+    document.title = `${program.title} MFA - Yale School of Art`;
+  }, [program.title]);
 
   return (
     <div className="min-h-screen flex flex-col">

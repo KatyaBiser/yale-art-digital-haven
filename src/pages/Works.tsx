@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -39,6 +39,10 @@ type Work = {
 };
 
 const Works = () => {
+  useEffect(() => {
+    document.title = "Student Works - Yale School of Art";
+  }, []);
+
   const [selectedWorkIndex, setSelectedWorkIndex] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [currentWorks, setCurrentWorks] = useState<Work[]>([]);

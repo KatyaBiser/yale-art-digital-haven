@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Navigation from "@/components/Navigation";
@@ -12,6 +13,10 @@ import photographyImg from "@/assets/photography.jpg";
 import sculptureImg from "@/assets/sculpture.jpg";
 
 const Index = () => {
+  useEffect(() => {
+    document.title = "Yale School of Art - Graduate Programs in Art & Design";
+  }, []);
+
   const programs = [
     {
       title: "Graphic Design",

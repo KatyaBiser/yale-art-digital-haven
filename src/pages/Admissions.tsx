@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { FileText, DollarSign, Calendar, CheckCircle, Image, Globe } from "lucide-react";
 
 const Admissions = () => {
+  useEffect(() => {
+    document.title = "Admissions - Yale School of Art";
+  }, []);
+
   const requirements = [
     "Bachelor's degree from an accredited institution",
     "Portfolio of recent work (20 images for most programs)",

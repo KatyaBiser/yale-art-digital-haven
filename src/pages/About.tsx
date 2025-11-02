@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Award, Users, BookOpen, Globe } from "lucide-react";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About Us - Yale School of Art";
+  }, []);
+
   const values = [
     {
       icon: Award,
