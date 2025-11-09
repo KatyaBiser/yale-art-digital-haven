@@ -22,6 +22,7 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
+  const isProgramsActive = () => location.pathname.startsWith('/programs');
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -90,7 +91,11 @@ const Navigation = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   onClick={() => navigate('/programs')}
-                  className="hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[state=open]:bg-muted data-[state=open]:text-primary cursor-pointer"
+                  className={`cursor-pointer hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[state=open]:bg-muted data-[state=open]:text-primary ${
+                    isProgramsActive()
+                      ? "!bg-muted text-primary"
+                      : "!bg-transparent"
+                  }`}
                 >
                   Programs
                 </NavigationMenuTrigger>
