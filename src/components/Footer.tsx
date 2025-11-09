@@ -36,46 +36,23 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Frequently Searched */}
+          {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-serif font-semibold mb-4">Frequently Searched</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/admissions" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Application Portal
-                </Link>
-              </li>
-              <li>
-                <Link to="/calendar" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Academic Calendar
-                </Link>
-              </li>
-              <li>
-                <Link to="/works" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Student Resources
-                </Link>
-              </li>
-              <li>
-                <Link to="/news" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Exhibition Schedule
-                </Link>
-              </li>
-              <li>
-                <Link to="/faculty" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Faculty Directory
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Visit Campus
-                </Link>
-              </li>
-              <li>
-                <Link to="/admissions#financial-aid" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Tuition & Financial Aid
-                </Link>
-              </li>
-            </ul>
+            <h3 className="text-lg font-serif font-semibold mb-4">Subscribe to Our Newsletter</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Stay updated with latest news, events, and exhibitions.
+            </p>
+            <form className="space-y-3">
+              <Input
+                type="email"
+                placeholder="Your email"
+                className="h-10"
+                required
+              />
+              <Button type="submit" className="w-full">
+                Subscribe
+              </Button>
+            </form>
           </div>
 
           {/* Sitemap */}
