@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Award, Users, BookOpen, Globe } from "lucide-react";
+import { Award, Users, BookOpen, Globe, ExternalLink, GraduationCap } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const About = () => {
   useEffect(() => {
@@ -148,14 +150,163 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Visiting Artists Program</h2>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-muted-foreground mb-6">
-                  Our Visiting Artists program brings distinguished artists, designers, and critics to campus 
-                  for lectures, critiques, and conversations with students and faculty. This program provides 
+                  Our Visiting Artists program brings distinguished artists, designers, and critics to campus
+                  for lectures, critiques, and conversations with students and faculty. This program provides
                   students with direct access to leading figures in contemporary art and design.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  Recent visiting artists have included internationally recognized practitioners across all 
+                  Recent visiting artists have included internationally recognized practitioners across all
                   disciplines, offering diverse perspectives on contemporary art practice and its role in society.
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Alumni Success Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <GraduationCap className="h-10 w-10 text-primary" />
+                  <h2 className="text-3xl md:text-4xl font-serif font-bold">Alumni Success</h2>
+                </div>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Our graduates have gone on to establish remarkable careers as artists, educators, designers,
+                  and cultural leaders around the world.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Alumni Card 1 */}
+                <Card className="overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Users className="h-20 w-20 text-primary/40" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Sarah Chen</h3>
+                    <p className="text-sm text-primary mb-3">MFA Photography '18</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Award-winning photographer whose work has been featured in the Whitney Biennial and
+                      Aperture Magazine. Currently teaches at Columbia University and exhibits internationally.
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href="https://sarahchen.art" target="_blank" rel="noopener noreferrer">
+                        View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Alumni Card 2 */}
+                <Card className="overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Users className="h-20 w-20 text-primary/40" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Marcus Williams</h3>
+                    <p className="text-sm text-primary mb-3">MFA Sculpture '16</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Creates large-scale public installations exploring themes of memory and place.
+                      Recent commissions include works for the High Line in NYC and SFMOMA.
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href="https://marcuswilliams.studio" target="_blank" rel="noopener noreferrer">
+                        View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Alumni Card 3 */}
+                <Card className="overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Users className="h-20 w-20 text-primary/40" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Elena Rodriguez</h3>
+                    <p className="text-sm text-primary mb-3">MFA Graphic Design '19</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Creative Director at Pentagram, working with clients like Apple and Nike.
+                      Her typeface designs have won multiple AIGA awards and are used worldwide.
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href="https://elenarodriguez.design" target="_blank" rel="noopener noreferrer">
+                        View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Alumni Card 4 */}
+                <Card className="overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Users className="h-20 w-20 text-primary/40" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">David Park</h3>
+                    <p className="text-sm text-primary mb-3">MFA Painting/Printmaking '15</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Contemporary painter whose work is held in major museum collections including MoMA and
+                      the Guggenheim. Represented by Gagosian Gallery in New York and London.
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href="https://davidpark.art" target="_blank" rel="noopener noreferrer">
+                        View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Alumni Card 5 */}
+                <Card className="overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Users className="h-20 w-20 text-primary/40" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Aisha Osman</h3>
+                    <p className="text-sm text-primary mb-3">MFA Photography '17</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Documentary photographer and MacArthur Fellow whose projects focus on migration and
+                      identity. Work published in National Geographic and exhibited at Tate Modern.
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href="https://aishaosman.photo" target="_blank" rel="noopener noreferrer">
+                        View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                {/* Alumni Card 6 */}
+                <Card className="overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <Users className="h-20 w-20 text-primary/40" />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">James Thompson</h3>
+                    <p className="text-sm text-primary mb-3">MFA Sculpture '14</p>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Installation artist and educator exploring technology and environment.
+                      Currently Associate Professor at CalArts and curator at the Hammer Museum.
+                    </p>
+                    <Button variant="outline" size="sm" className="w-full" asChild>
+                      <a href="https://jamesthompson.studio" target="_blank" rel="noopener noreferrer">
+                        View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="text-center mt-12">
+                <p className="text-muted-foreground mb-6">
+                  These are just a few examples of the incredible achievements of our alumni community.
+                </p>
+                <Button size="lg" variant="outline">
+                  Explore More Alumni Stories
+                </Button>
               </div>
             </div>
           </div>
