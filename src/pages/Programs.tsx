@@ -263,19 +263,42 @@ const Programs = () => {
       ],
       curriculum: [
         {
-          category: "Material Practice",
+          category: "Core Studios & Critique",
           courses: [
-            { name: "Sculpture Fundamentals", description: "Traditional and contemporary three-dimensional art-making techniques" },
-            { name: "Digital Fabrication", description: "CAD, 3D printing, and digital manufacturing processes" },
-            { name: "Installation Art", description: "Site-specific and immersive sculptural environments" }
+            { name: "Sculpture Studio Seminar", description: "Weekly critiques with full faculty and students, each student reviewed at least once per term" },
+            { name: "X-Critique", description: "In-depth critique focusing on time-based and ungainly works" },
+            { name: "Individual Criticism", description: "One-on-one criticism of individual sculpture projects" },
+            { name: "Sculpture Thesis", description: "Thesis support through zine production, exhibition proposals, installation, and professional development" }
           ]
         },
         {
-          category: "Expanded Field",
+          category: "Material Techniques",
           courses: [
-            { name: "Public Art Practice", description: "Creating work for public spaces and community engagement" },
-            { name: "Contemporary Sculpture Seminar", description: "Critical discourse in contemporary three-dimensional art" },
-            { name: "Thesis Exhibition", description: "Culminating exhibition of independent work" }
+            { name: "Sculpture Basics", description: "Space, form, weight, mass concepts through construction techniques and material application" },
+            { name: "Introduction to Sculpture: Wood", description: "Woodworking technology with hand tools and machines, object construction and spatial installation" },
+            { name: "Introduction to Sculpture: Metal", description: "Metal fabrication through artistic and cultural frameworks, welding and construction techniques" },
+            { name: "Sculpture as Object", description: "Documentation, preservation, conservation; wood carving, lamination, assemblage, metal processes" }
+          ]
+        },
+        {
+          category: "Time-based & Installation",
+          courses: [
+            { name: "Advanced Video Installation", description: "Video installations, performance, kinetic sculptures, creating complex spatial and temporal environments" }
+          ]
+        },
+        {
+          category: "Conceptual & Experimental",
+          courses: [
+            { name: "Sculpture and Questions of Definition", description: "Exploring what sculpture is, context, authorship, process, and vulnerability" },
+            { name: "Doing", description: "Collective experiential learning through movement, objects, workshops, and field trips" },
+            { name: "The Word is My Fourth Dimension", description: "Text-based practices across various substrates: browser, wall, body, sky, land" },
+            { name: "Landscape Paradoxes", description: "Nature in contemporary art, wild and cultivated environments, elemental forces" }
+          ]
+        },
+        {
+          category: "Advanced Studio",
+          courses: [
+            { name: "Advanced Sculpture Studio Practice", description: "Self-directed work with group discussions, readings, slides, and videos of current art practices" }
           ]
         }
       ],
