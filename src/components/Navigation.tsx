@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Search } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import yaleLogo from "@/assets/yale-logo.png";
 import {
@@ -379,15 +379,28 @@ const Navigation = () => {
         {/* Search Bar */}
         {searchOpen && (
           <div className="pb-4 animate-in slide-in-from-top-2">
-            <form onSubmit={handleSearch}>
+            <form onSubmit={handleSearch} className="relative max-w-md">
               <Input
                 type="search"
                 placeholder="Search for programs, faculty, news..."
-                className="max-w-md"
+                className="pr-10"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
               />
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="absolute right-1 top-1/2 -translate-y-1/2 h-8 w-8"
+                onClick={() => {
+                  setSearchOpen(false);
+                  setSearchQuery("");
+                }}
+                title="Close search (Esc)"
+              >
+                <X className="h-4 w-4" />
+              </Button>
             </form>
           </div>
         )}
