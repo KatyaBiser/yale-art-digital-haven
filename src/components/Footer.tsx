@@ -36,18 +36,75 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Frequently Searched */}
           <div>
-            <h3 className="text-lg font-serif font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-serif font-semibold mb-4">Frequently Searched</h3>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link to="/admissions" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Application Portal
+                </Link>
+              </li>
+              <li>
+                <Link to="/calendar" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Academic Calendar
+                </Link>
+              </li>
+              <li>
+                <Link to="/works" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Student Resources
+                </Link>
+              </li>
+              <li>
+                <Link to="/news" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Exhibition Schedule
+                </Link>
+              </li>
+              <li>
+                <Link to="/faculty" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Faculty Directory
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Visit Campus
+                </Link>
+              </li>
+              <li>
+                <Link to="/admissions#financial-aid" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Tuition & Financial Aid
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Sitemap */}
+          <div>
+            <h3 className="text-lg font-serif font-semibold mb-4">Sitemap</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="text-muted-foreground hover:text-primary transition-smooth">
-                  About Us
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/programs" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Programs
+                </Link>
+              </li>
+              <li>
+                <Link to="/faculty" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Faculty
                 </Link>
               </li>
               <li>
                 <Link to="/admissions" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Apply Now
+                  Admissions
                 </Link>
               </li>
               <li>
@@ -56,40 +113,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/calendar" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Events Calendar
+                <Link to="/news" className="text-muted-foreground hover:text-primary transition-smooth">
+                  News & Events
                 </Link>
               </li>
               <li>
-                <Link to="/faculty" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Faculty & Staff
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Programs */}
-          <div>
-            <h3 className="text-lg font-serif font-semibold mb-4">Programs</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/programs/graphic-design" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Graphic Design
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/painting" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Painting/Printmaking
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/photography" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Photography
-                </Link>
-              </li>
-              <li>
-                <Link to="/programs/sculpture" className="text-muted-foreground hover:text-primary transition-smooth">
-                  Sculpture
+                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-smooth">
+                  Contact
                 </Link>
               </li>
             </ul>
