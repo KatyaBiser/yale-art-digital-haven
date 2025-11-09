@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
+import profJosefPavlicek from "@/assets/Teachers/Prof-Josef-Pavlicek.png";
 import drSarahChen from "@/assets/Teachers/Dr-Sarah-Chen.png";
 import profMichaelRodriguez from "@/assets/Teachers/Prof-Michael-Rodriguez.png";
 import drEmilyThompson from "@/assets/Teachers/Dr-Emily-Thompson.png";
@@ -23,6 +24,15 @@ const Faculty = () => {
   }, []);
 
   const facultyMembers = [
+    {
+      name: "Prof. Josef Pavlicek",
+      position: "Dean of Yale School of Art",
+      department: "All" as Department,
+      specialty: "Contemporary Art, Institutional Leadership",
+      bio: "Prof. Pavlicek is an internationally acclaimed artist and educator who has served as Dean since 2018. A recipient of the MacArthur Fellowship, Guggenheim Fellowship, and National Medal of Arts, his work is held in permanent collections of MoMA, Tate Modern, and Centre Pompidou. He has shaped contemporary art education at leading institutions worldwide and continues to exhibit internationally while guiding the school's visionary direction.",
+      email: "josef.pavlicek@yale.edu",
+      image: profJosefPavlicek,
+    },
     {
       name: "Dr. Sarah Chen",
       position: "Director of Graphic Design",
