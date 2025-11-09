@@ -328,7 +328,7 @@ const Programs = () => {
                 <p className="text-muted-foreground mb-4">
                   For complete course descriptions and academic regulations
                 </p>
-                <a href="/School of Art 2025-2026.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/yale-art-digital-haven/School%20of%20Art%202025-2026.pdf" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="lg">
                     <ArrowRight className="mr-2 h-5 w-5" />
                     View Full Course Bulletin (PDF)
