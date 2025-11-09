@@ -24,6 +24,7 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
   const isProgramsActive = () => location.pathname.startsWith('/programs');
   const isAboutActive = () => location.pathname === '/about' || location.pathname === '/facilities';
+  const isAdmissionsActive = () => location.pathname === '/admissions' || location.pathname === '/tuition';
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -63,6 +64,11 @@ const Navigation = () => {
   const aboutLinks = [
     { name: "About", path: "/about", description: "Our mission and history" },
     { name: "Facilities", path: "/facilities", description: "Studios, workshops & equipment" },
+  ];
+
+  const admissionsLinks = [
+    { name: "Admissions Overview", path: "/admissions", description: "Application process & requirements" },
+    { name: "Tuition & Financial Aid", path: "/tuition", description: "Cost breakdown & scholarships" },
   ];
 
   return (
@@ -161,15 +167,36 @@ const Navigation = () => {
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link to="/admissions">
-                  <NavigationMenuLink
-                    className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary focus:outline-none ${
-                      isActive("/admissions") ? "bg-muted text-primary" : ""
-                    }`}
-                  >
-                    Admissions
-                  </NavigationMenuLink>
-                </Link>
+                <NavigationMenuTrigger
+                  onClick={() => navigate('/admissions')}
+                  className={`cursor-pointer hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary data-[state=open]:bg-muted data-[state=open]:text-primary ${
+                    isAdmissionsActive()
+                      ? "!bg-muted text-primary"
+                      : "!bg-transparent"
+                  }`}
+                >
+                  Admissions
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4">
+                    {admissionsLinks.map((link) => (
+                      <li key={link.path}>
+                        <Link to={link.path}>
+                          <NavigationMenuLink
+                            className={`block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-muted hover:text-primary focus:bg-muted focus:text-primary ${
+                              isActive(link.path) ? "bg-muted" : ""
+                            }`}
+                          >
+                            <div className="text-sm font-medium leading-none">{link.name}</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              {link.description}
+                            </p>
+                          </NavigationMenuLink>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
@@ -300,13 +327,21 @@ const Navigation = () => {
                   >
                     Faculty
                   </Link>
-                  <Link
-                    to="/admissions"
-                    className="text-lg font-medium hover:text-primary transition-smooth"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Admissions
-                  </Link>
+                  <div>
+                    <p className="text-lg font-medium mb-2">Admissions</p>
+                    <div className="flex flex-col gap-2 ml-4">
+                      {admissionsLinks.map((link) => (
+                        <Link
+                          key={link.path}
+                          to={link.path}
+                          className="text-sm hover:text-primary transition-smooth"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                   <Link
                     to="/works"
                     className="text-lg font-medium hover:text-primary transition-smooth"

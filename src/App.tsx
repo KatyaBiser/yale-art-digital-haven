@@ -11,6 +11,7 @@ import Programs from "./pages/Programs";
 import ProgramsOverview from "./pages/ProgramsOverview";
 import Faculty from "./pages/Faculty";
 import Admissions from "./pages/Admissions";
+import Tuition from "./pages/Tuition";
 import Works from "./pages/Works";
 import News from "./pages/News";
 import Calendar from "./pages/Calendar";
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/programs/:programId" element={<Programs />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/admissions" element={<Admissions />} />
+          <Route path="/tuition" element={<Tuition />} />
           <Route path="/works" element={<Works />} />
           <Route path="/news" element={<News />} />
           <Route path="/calendar" element={<Calendar />} />
