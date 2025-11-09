@@ -29,7 +29,7 @@ const Faculty = () => {
       position: "Dean of Yale School of Art",
       department: "All" as Department,
       specialty: "Contemporary Art, Institutional Leadership",
-      bio: "Prof. Pavlicek is an internationally acclaimed artist and educator who has served as Dean since 2018. A recipient of the MacArthur Fellowship, Guggenheim Fellowship, and National Medal of Arts, his work is held in permanent collections of MoMA, Tate Modern, and Centre Pompidou. He has shaped contemporary art education at leading institutions worldwide and continues to exhibit internationally while guiding the school's visionary direction.",
+      bio: "Prof. Pavlicek is an internationally acclaimed artist and educator who has served as Dean since 2018. A recipient of the MacArthur Fellowship and Guggenheim Fellowship, his work is held in permanent collections of MoMA, Tate Modern, and Centre Pompidou.",
       email: "josef.pavlicek@yale.edu",
       image: profJosefPavlicek,
     },
