@@ -138,19 +138,45 @@ const Programs = () => {
       ],
       curriculum: [
         {
-          category: "Core Practice",
+          category: "Core Studios & Critique",
           courses: [
-            { name: "Advanced Painting Techniques", description: "Intensive studio practice developing individual artistic voice" },
-            { name: "Printmaking Methods", description: "Professional printmaking techniques and processes" },
-            { name: "Thesis Exhibition", description: "Culminating independent body of work" }
+            { name: "Round Trip: First-Year Crits", description: "Unpacking making and speaking practices, exploring form, content, authorship, and critique culture" },
+            { name: "Pit Crit", description: "Weekly two-hour critiques with faculty and visiting critics, the core of the program" },
+            { name: "Painting/Printmaking Thesis", description: "Development of thesis exhibition with programmatic, publication, and installation elements" },
+            { name: "Individual Criticism", description: "One-on-one criticism of individual projects throughout the program" }
+          ]
+        },
+        {
+          category: "Painting & Color",
+          courses: [
+            { name: "Intermediate Painting", description: "Individuation of pictorial language through representational and abstract approaches" },
+            { name: "Painting Time", description: "Exploring how painting holds time through on-site observational work" },
+            { name: "Colorspace", description: "Experimenting with color systems, interaction, and expressive potential across media" }
+          ]
+        },
+        {
+          category: "Printmaking",
+          courses: [
+            { name: "Introduction to Intaglio Printmaking", description: "Drypoint, line-etch, and aquatint techniques with 500-year-old process" },
+            { name: "Introduction to Lithography", description: "Stone, ball ground, and photographic plate lithographic printing" },
+            { name: "Print Series", description: "Developing cohesive print series exploring printmaking's integral qualities" },
+            { name: "Silkscreen Printing", description: "Hand-cut stencils to four-color separation photo-silkscreen techniques" },
+            { name: "The Matrix: Textures and Densities of the Grid", description: "Grid systems in contemporary and ancient printmaking contexts" }
+          ]
+        },
+        {
+          category: "Materials & Experimental Practice",
+          courses: [
+            { name: "On the Surface", description: "Material-focused workshop for experimental approaches to building surfaces" },
+            { name: "Fabric Lab", description: "Fiber-related praxis: weave structures, stitching, printing, and dyeing techniques" },
+            { name: "Digital Drawing", description: "Digital techniques expanding traditional drawing and painting possibilities" },
+            { name: "Adventures in Self-Publishing", description: "Artists' books, zines, and alternative publishing to bypass traditional gatekeepers" }
           ]
         },
         {
           category: "Theory & Context",
           courses: [
-            { name: "Color Theory and Practice", description: "Exploration of color relationships and application" },
-            { name: "Contemporary Art Seminar", description: "Engagement with current art discourse and practices" },
-            { name: "Art History and Criticism", description: "Historical context and critical analysis" }
+            { name: "Ventriloquism, Performance, and Contemporary Art", description: "Voice, embodiment, and performance in contemporary interdisciplinary practice" }
           ]
         }
       ],
