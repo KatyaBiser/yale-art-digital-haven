@@ -13,6 +13,48 @@ const Contact = () => {
     document.title = "Contact Us - Yale School of Art";
   }, []);
 
+  const keyContacts = [
+    {
+      icon: Users,
+      title: "Admissions",
+      description: "Questions about applying to our MFA programs",
+      phone: "(203) 432-2680",
+      email: "artadmissions@yale.edu",
+      details: [
+        "Application requirements and deadlines",
+        "Portfolio review guidelines",
+        "Financial aid and scholarships",
+        "International student admissions",
+      ],
+    },
+    {
+      icon: Mail,
+      title: "Public Inquiries",
+      description: "General questions and information requests",
+      phone: "(203) 432-2600",
+      email: "art.school@yale.edu",
+      details: [
+        "General program information",
+        "Event inquiries",
+        "Media and press requests",
+        "Partnership opportunities",
+      ],
+    },
+    {
+      icon: Users,
+      title: "Student Services",
+      description: "Support for current students",
+      phone: "(203) 432-2635",
+      email: "studentservices@yale.edu",
+      details: [
+        "Academic advising",
+        "Registration assistance",
+        "Student resources and support",
+        "Campus life questions",
+      ],
+    },
+  ];
+
   const contactInfo = [
     {
       icon: MapPin,
@@ -21,22 +63,6 @@ const Contact = () => {
         "Yale School of Art",
         "1156 Chapel Street",
         "New Haven, CT 06511",
-      ],
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      details: [
-        "Main Office: (203) 432-2600",
-        "Admissions: (203) 432-2680",
-      ],
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      details: [
-        "General: art.school@yale.edu",
-        "Admissions: artadmissions@yale.edu",
       ],
     },
     {
@@ -127,11 +153,63 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* Key Contacts Section */}
+        <section className="py-16 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl font-serif font-bold mb-4 text-center">How Can We Help You?</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Find the right contact for your inquiry. Our team is here to assist you.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {keyContacts.map((contact, index) => (
+                  <Card key={index} className="border-2 hover:border-primary transition-smooth">
+                    <CardContent className="p-6">
+                      <contact.icon className="h-10 w-10 text-primary mb-4" />
+                      <h3 className="text-xl font-semibold mb-2">{contact.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4">{contact.description}</p>
+
+                      <div className="space-y-3 mb-4">
+                        <a
+                          href={`tel:${contact.phone}`}
+                          className="flex items-center gap-2 text-sm hover:text-primary transition-smooth"
+                        >
+                          <Phone className="h-4 w-4" />
+                          {contact.phone}
+                        </a>
+                        <a
+                          href={`mailto:${contact.email}`}
+                          className="flex items-center gap-2 text-sm hover:text-primary transition-smooth break-all"
+                        >
+                          <Mail className="h-4 w-4 flex-shrink-0" />
+                          {contact.email}
+                        </a>
+                      </div>
+
+                      <div className="pt-4 border-t">
+                        <p className="text-xs font-semibold text-muted-foreground mb-2">We can help with:</p>
+                        <ul className="space-y-1">
+                          {contact.details.map((detail, idx) => (
+                            <li key={idx} className="text-xs text-muted-foreground flex items-start gap-2">
+                              <span className="text-primary mt-0.5">•</span>
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Info */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-serif font-bold mb-8 text-center">General Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-3xl mx-auto">
               {contactInfo.map((info, index) => (
                 <Card key={index}>
                   <CardContent className="p-6 text-center">
