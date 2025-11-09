@@ -6,6 +6,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import Facilities from "./pages/Facilities";
 import Programs from "./pages/Programs";
 import ProgramsOverview from "./pages/ProgramsOverview";
 import Faculty from "./pages/Faculty";
@@ -29,6 +30,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
+          <Route path="/facilities" element={<Facilities />} />
           <Route path="/programs" element={<ProgramsOverview />} />
           <Route path="/programs/:programId" element={<Programs />} />
           <Route path="/faculty" element={<Faculty />} />
