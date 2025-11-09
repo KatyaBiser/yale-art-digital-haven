@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight, Download } from "lucide-react";
 import graphicDesignImg from "@/assets/graphic-design.jpg";
 import paintingImg from "@/assets/painting.jpg";
 import photographyImg from "@/assets/photography.jpg";
@@ -19,7 +19,10 @@ const Programs = () => {
     description: string;
     image: string;
     highlights: string[];
-    curriculum: string[];
+    curriculum: Array<{
+      category: string;
+      courses: Array<{ name: string; description: string }>;
+    }>;
     faculty: string[];
   }> = {
     "graphic-design": {
@@ -36,12 +39,83 @@ const Programs = () => {
         "Full tuition scholarship",
       ],
       curriculum: [
-        "Typography and Systems",
-        "Interactive Design",
-        "Motion Graphics",
-        "Publication Design",
-        "Brand Identity",
-        "Thesis Project",
+        {
+          category: "Core Studios",
+          courses: [
+            {
+              name: "First-Year Graduate Studio",
+              description: "Intense workshops exploring text, space, and object relationships with resident and visiting faculty"
+            },
+            {
+              name: "Second-Year Graduate Studio",
+              description: "Independent thesis project development with individual meetings and editorial support"
+            }
+          ]
+        },
+        {
+          category: "Typography",
+          courses: [
+            {
+              name: "Typography!",
+              description: "Fundamentals of typography, book design, handwork and digital technology"
+            },
+            {
+              name: "Advanced Typeface Design",
+              description: "Original typeface design responding to custom briefs using RoboFont"
+            },
+            {
+              name: "T for Typographies",
+              description: "Contemporary typography with emphasis on craft, expression, and compositional skills"
+            }
+          ]
+        },
+        {
+          category: "Digital & Interactive",
+          courses: [
+            {
+              name: "Interactive Design and the Internet",
+              description: "Creating unique graphic forms for the web using HTML, CSS, and JavaScript"
+            },
+            {
+              name: "Code and Interfaces",
+              description: "Custom digital tools using p5.js, Processing, and unconventional methodologies"
+            },
+            {
+              name: "Localhosts",
+              description: "Creating web servers and situated web-based works using single-board computers"
+            }
+          ]
+        },
+        {
+          category: "Time-based Media",
+          courses: [
+            {
+              name: "Motion Design",
+              description: "Time-based communication with motion and sound, choreography of visual and aural images"
+            },
+            {
+              name: "Text, Speech, and Moving Image",
+              description: "Exploring language as visual text and spoken word within video art"
+            }
+          ]
+        },
+        {
+          category: "Theory & Practice",
+          courses: [
+            {
+              name: "Graphic Design Histories",
+              description: "Alternative media and social movements in U.S. graphic design history"
+            },
+            {
+              name: "Writing as Visual Practice",
+              description: "Developing interconnected relationship between writing, research, and design practice"
+            },
+            {
+              name: "Exhibition Design",
+              description: "Creative strategies bridging physical and digital spaces for audience engagement"
+            }
+          ]
+        }
       ],
       faculty: [
         "Distinguished faculty with active professional practices",
@@ -63,12 +137,22 @@ const Programs = () => {
         "Full tuition scholarship",
       ],
       curriculum: [
-        "Advanced Painting Techniques",
-        "Printmaking Methods",
-        "Color Theory and Practice",
-        "Contemporary Art Seminar",
-        "Art History and Criticism",
-        "Thesis Exhibition",
+        {
+          category: "Core Practice",
+          courses: [
+            { name: "Advanced Painting Techniques", description: "Intensive studio practice developing individual artistic voice" },
+            { name: "Printmaking Methods", description: "Professional printmaking techniques and processes" },
+            { name: "Thesis Exhibition", description: "Culminating independent body of work" }
+          ]
+        },
+        {
+          category: "Theory & Context",
+          courses: [
+            { name: "Color Theory and Practice", description: "Exploration of color relationships and application" },
+            { name: "Contemporary Art Seminar", description: "Engagement with current art discourse and practices" },
+            { name: "Art History and Criticism", description: "Historical context and critical analysis" }
+          ]
+        }
       ],
       faculty: [
         "Accomplished painters and printmakers",
@@ -90,12 +174,22 @@ const Programs = () => {
         "Full tuition scholarship",
       ],
       curriculum: [
-        "Advanced Photography",
-        "Digital Imaging",
-        "Alternative Processes",
-        "Documentary Practice",
-        "Contemporary Photography Seminar",
-        "Thesis Project",
+        {
+          category: "Technical Practice",
+          courses: [
+            { name: "Advanced Photography", description: "Advanced lens-based image-making techniques and conceptual development" },
+            { name: "Digital Imaging", description: "Digital photography workflows and post-production" },
+            { name: "Alternative Processes", description: "Experimental and historical photographic processes" }
+          ]
+        },
+        {
+          category: "Context & Theory",
+          courses: [
+            { name: "Documentary Practice", description: "Documentary photography and visual storytelling" },
+            { name: "Contemporary Photography Seminar", description: "Photography's evolving role in contemporary visual culture" },
+            { name: "Thesis Project", description: "Independent body of photographic work" }
+          ]
+        }
       ],
       faculty: [
         "Renowned photographers and visual artists",
@@ -117,12 +211,22 @@ const Programs = () => {
         "Full tuition scholarship",
       ],
       curriculum: [
-        "Sculpture Fundamentals",
-        "Installation Art",
-        "Digital Fabrication",
-        "Public Art Practice",
-        "Contemporary Sculpture Seminar",
-        "Thesis Exhibition",
+        {
+          category: "Material Practice",
+          courses: [
+            { name: "Sculpture Fundamentals", description: "Traditional and contemporary three-dimensional art-making techniques" },
+            { name: "Digital Fabrication", description: "CAD, 3D printing, and digital manufacturing processes" },
+            { name: "Installation Art", description: "Site-specific and immersive sculptural environments" }
+          ]
+        },
+        {
+          category: "Expanded Field",
+          courses: [
+            { name: "Public Art Practice", description: "Creating work for public spaces and community engagement" },
+            { name: "Contemporary Sculpture Seminar", description: "Critical discourse in contemporary three-dimensional art" },
+            { name: "Thesis Exhibition", description: "Culminating exhibition of independent work" }
+          ]
+        }
       ],
       faculty: [
         "Internationally recognized sculptors",
@@ -201,14 +305,35 @@ const Programs = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Curriculum</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {program.curriculum.map((course, index) => (
-                  <Card key={index}>
-                    <CardContent className="p-4">
-                      <p className="font-medium">{course}</p>
-                    </CardContent>
-                  </Card>
+              <div className="space-y-8">
+                {program.curriculum.map((category, index) => (
+                  <div key={index}>
+                    <h3 className="text-xl font-semibold mb-4 text-primary">{category.category}</h3>
+                    <div className="grid grid-cols-1 gap-4">
+                      {category.courses.map((course, courseIndex) => (
+                        <Card key={courseIndex} className="transition-smooth hover:shadow-md">
+                          <CardContent className="p-4">
+                            <p className="font-medium mb-2">{course.name}</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{course.description}</p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
                 ))}
+              </div>
+
+              {/* PDF View Button */}
+              <div className="mt-10 pt-8 border-t border-border text-center">
+                <p className="text-muted-foreground mb-4">
+                  For complete course descriptions and academic regulations
+                </p>
+                <a href="/School of Art 2025-2026.pdf" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="lg">
+                    <ArrowRight className="mr-2 h-5 w-5" />
+                    View Full Course Bulletin (PDF)
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
