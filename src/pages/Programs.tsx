@@ -201,19 +201,44 @@ const Programs = () => {
       ],
       curriculum: [
         {
-          category: "Technical Practice",
+          category: "Core Studios & Critique",
           courses: [
-            { name: "Advanced Photography", description: "Advanced lens-based image-making techniques and conceptual development" },
-            { name: "Digital Imaging", description: "Digital photography workflows and post-production" },
-            { name: "Alternative Processes", description: "Experimental and historical photographic processes" }
+            { name: "Critique Panel", description: "Weekly presentations for open review by rotating faculty panel of artists, curators, and critics" },
+            { name: "Picture Show: Thesis in Photography", description: "Supporting thesis exhibition with logistics, documentation, and professional development" },
+            { name: "This Means Something", description: "Guest artist lectures and discussions, student-curated schedule across disciplines" }
           ]
         },
         {
-          category: "Context & Theory",
+          category: "Technical Practice",
           courses: [
-            { name: "Documentary Practice", description: "Documentary photography and visual storytelling" },
-            { name: "Contemporary Photography Seminar", description: "Photography's evolving role in contemporary visual culture" },
-            { name: "Thesis Project", description: "Independent body of photographic work" }
+            { name: "Practice and Production", description: "Comprehensive digital workflow from capture to print, color management, and advanced Photoshop" },
+            { name: "Black & White Photography", description: "35mm cameras, photograms, pinhole, fundamental printing, film exposure and development" },
+            { name: "Digital Photography", description: "Digital color photography with emphasis on visual syntax and meaning in photo-saturated world" },
+            { name: "Form For Content in Large Format", description: "Analog view cameras, advanced lighting and printing, scanning archival negatives" }
+          ]
+        },
+        {
+          category: "Conceptual & Narrative Approaches",
+          courses: [
+            { name: "Photographic Storytelling", description: "Elements of visual narratives, sequencing, photographic literacy, camera techniques" },
+            { name: "Narrative Forms and Documentary Style", description: "Documentary to studio approaches converging on contemporary digital moment" },
+            { name: "Picture Collection", description: "Using picture collections to critique culture and as resources for artistic practice" },
+            { name: "Picturing at the Peabody", description: "Creating work from Peabody Museum collections, culminating in collaborative exhibition" }
+          ]
+        },
+        {
+          category: "Theory & Context",
+          courses: [
+            { name: "Core Curriculum II", description: "Exploring form and content relationships through close looking and visual thinking strategies" },
+            { name: "Critical Perspectives in Photography", description: "Critical issues in contemporary photography taught at museums and institutions" },
+            { name: "Eye and Ear", description: "Incorporating writing into practice, exploring description, narrative, and artist statements" }
+          ]
+        },
+        {
+          category: "Experimental & Interdisciplinary",
+          courses: [
+            { name: "Experimental Narratives", description: "Survey of narrative, documentary, and experimental film exploring visual art genres" },
+            { name: "What Makes a Book Work?", description: "Contemporary photobook landscape with focus on producing a class book" }
           ]
         }
       ],
