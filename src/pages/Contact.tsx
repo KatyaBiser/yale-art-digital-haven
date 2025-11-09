@@ -215,11 +215,30 @@ const Contact = () => {
                   <CardContent className="p-6 text-center">
                     <info.icon className="h-10 w-10 text-primary mx-auto mb-4" />
                     <h3 className="text-lg font-semibold mb-3">{info.title}</h3>
-                    {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-sm text-muted-foreground">
-                        {detail}
-                      </p>
-                    ))}
+                    {info.title === "Address" ? (
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=1156+Chapel+Street,New+Haven,CT+06511"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-sm text-muted-foreground hover:text-primary transition-smooth"
+                      >
+                        {info.details.map((detail, idx) => (
+                          <p key={idx}>
+                            {detail}
+                          </p>
+                        ))}
+                        <p className="text-xs text-primary mt-2 flex items-center justify-center gap-1">
+                          <MapPin className="h-3 w-3" />
+                          Get Directions
+                        </p>
+                      </a>
+                    ) : (
+                      info.details.map((detail, idx) => (
+                        <p key={idx} className="text-sm text-muted-foreground">
+                          {detail}
+                        </p>
+                      ))
+                    )}
                   </CardContent>
                 </Card>
               ))}

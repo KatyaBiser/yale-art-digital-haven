@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import yaleLogo from "@/assets/yale-logo.png";
@@ -125,19 +125,37 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-serif font-semibold mb-4">Newsletter</h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              Stay updated with latest news and events.
-            </p>
-            <div className="flex gap-2">
-              <Input
-                type="email"
-                placeholder="Your email"
-                className="flex-1"
-              />
-              <Button variant="default">Subscribe</Button>
+            <h3 className="text-lg font-serif font-semibold mb-4">Contact</h3>
+            <div className="space-y-3 text-sm">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=1156+Chapel+Street,New+Haven,CT+06511"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 text-muted-foreground hover:text-primary transition-smooth group"
+              >
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:text-primary" />
+                <span>
+                  Yale School of Art<br />
+                  1156 Chapel Street<br />
+                  New Haven, CT 06511
+                </span>
+              </a>
+              <a
+                href="tel:+12034322600"
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth"
+              >
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <span>(203) 432-2600</span>
+              </a>
+              <a
+                href="mailto:art.school@yale.edu"
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-smooth"
+              >
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <span>art.school@yale.edu</span>
+              </a>
             </div>
           </div>
         </div>
