@@ -335,14 +335,66 @@ const Programs = () => {
       title: "Photography",
       subtitle: "MFA in Photography",
       description: "The Photography program at Yale School of Art provides an opportunity for students to explore the possibilities of lens-based image-making in the context of contemporary art. The program emphasizes both technical expertise and conceptual development, encouraging students to develop a sophisticated understanding of photography's evolving role in visual culture.",
+      overview: "Photography is a two-year program of study admitting ten students a year. Darkroom, studio, and computer facilities are provided. Students receive technical instruction in black-and-white and color photography as well as nonsilver processes and digital image production.\n\nThe program is committed to a broad definition of photography as a lens-based medium open to a variety of expressive means. Students work both individually and in groups with faculty and visiting artists. In addition, a critique panel composed of faculty and other artists or critics meets weekly, as well as for a final review each term, to discuss student work.",
+      creditRequirements: "51 credits in area of concentration, including ART 949, and 9 additional credits, including a minimum of 3 academic credits in courses outside the School of Art.\n\nProvided that course and minimum requirements are met, students may elect to enroll in more than 15 credits per semester.",
       image: photographyImg,
       highlights: [
         "Two-year MFA program",
-        "State-of-the-art digital and analog facilities",
-        "Professional darkroom access",
-        "Digital imaging labs",
-        "Weekly critiques and seminars",
+        "10 students admitted annually",
+        "Darkroom, studio, and computer facilities",
+        "Black-and-white and color photography instruction",
+        "Weekly critique panels with faculty and visiting artists",
         "Full tuition scholarship",
+      ],
+      typicalPlan: [
+        {
+          year: "First year minimum credits",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 822", name: "Practice and Production", credits: 3 },
+                { code: "ART 842/843", name: "Critique Panel", credits: 6 },
+                { code: "ART 826/827", name: "This Means Something", credits: 3 },
+                { code: "ART 949", name: "Critical and Professional Practices", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 842/843", name: "Critique Panel", credits: 6 },
+                { code: "ART 826/827", name: "This Means Something", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 6 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
+        {
+          year: "Second year minimum credits",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 823", name: "Critical Perspectives", credits: 3 },
+                { code: "ART 844/845", name: "Critique Panel", credits: 6 },
+                { code: "", name: "Academic or Studio Electives", credits: 6 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 825", name: "What Makes a Book Work?", credits: 3 },
+                { code: "ART 831", name: "Picture Show: Thesis in Photography", credits: 3 },
+                { code: "ART 844/845", name: "Critique Panel", credits: 6 },
+                { code: "", name: "Academic or Studio Electives", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
       ],
       curriculum: [
         {
