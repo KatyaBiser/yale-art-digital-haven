@@ -185,14 +185,14 @@ const About = () => {
                     <Users className="h-20 w-20 text-primary/40" />
                   </div>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Sarah Chen</h3>
-                    <p className="text-sm text-primary mb-3">MFA Photography '18</p>
+                    <h3 className="text-xl font-semibold mb-2">Mariya Batan</h3>
+                    <p className="text-sm text-primary mb-3">MFA Graphic Design</p>
                     <p className="text-sm text-muted-foreground mb-4">
-                      Award-winning photographer whose work has been featured in the Whitney Biennial and
+                      Award-winning graphic designer whose work has been featured in the Whitney Biennial and
                       Aperture Magazine. Currently teaches at Columbia University and exhibits internationally.
                     </p>
                     <Button variant="outline" size="sm" className="w-full" asChild>
-                      <a href="https://sarahchen.art" target="_blank" rel="noopener noreferrer">
+                      <a href="riyablin.github.io/mariya-batan-portfolio" target="_blank" rel="noopener noreferrer">
                         View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
                       </a>
                     </Button>
@@ -206,7 +206,7 @@ const About = () => {
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Marcus Williams</h3>
-                    <p className="text-sm text-primary mb-3">MFA Sculpture '16</p>
+                    <p className="text-sm text-primary mb-3">MFA Sculpture</p>
                     <p className="text-sm text-muted-foreground mb-4">
                       Creates large-scale public installations exploring themes of memory and place.
                       Recent commissions include works for the High Line in NYC and SFMOMA.
@@ -226,7 +226,7 @@ const About = () => {
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Elena Rodriguez</h3>
-                    <p className="text-sm text-primary mb-3">MFA Graphic Design '19</p>
+                    <p className="text-sm text-primary mb-3">MFA Graphic Design</p>
                     <p className="text-sm text-muted-foreground mb-4">
                       Creative Director at Pentagram, working with clients like Apple and Nike.
                       Her typeface designs have won multiple AIGA awards and are used worldwide.
@@ -246,7 +246,7 @@ const About = () => {
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">David Park</h3>
-                    <p className="text-sm text-primary mb-3">MFA Painting/Printmaking '15</p>
+                    <p className="text-sm text-primary mb-3">MFA Painting/Printmaking</p>
                     <p className="text-sm text-muted-foreground mb-4">
                       Contemporary painter whose work is held in major museum collections including MoMA and
                       the Guggenheim. Represented by Gagosian Gallery in New York and London.
@@ -266,7 +266,7 @@ const About = () => {
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Aisha Osman</h3>
-                    <p className="text-sm text-primary mb-3">MFA Photography '17</p>
+                    <p className="text-sm text-primary mb-3">MFA Photography</p>
                     <p className="text-sm text-muted-foreground mb-4">
                       Documentary photographer and MacArthur Fellow whose projects focus on migration and
                       identity. Work published in National Geographic and exhibited at Tate Modern.
@@ -286,7 +286,7 @@ const About = () => {
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">James Thompson</h3>
-                    <p className="text-sm text-primary mb-3">MFA Sculpture '14</p>
+                    <p className="text-sm text-primary mb-3">MFA Sculpture</p>
                     <p className="text-sm text-muted-foreground mb-4">
                       Installation artist and educator exploring technology and environment.
                       Currently Associate Professor at CalArts and curator at the Hammer Museum.
