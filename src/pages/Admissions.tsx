@@ -3,7 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { FileText, Calendar, CheckCircle, AlertCircle, Image } from "lucide-react";
+import { FileText, Calendar, CheckCircle, AlertCircle, Image, Globe } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -354,6 +354,165 @@ const Admissions = () => {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* International Applicants Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 mb-8">
+                <Globe className="h-8 w-8 text-primary" />
+                <h2 className="text-3xl md:text-4xl font-serif font-bold">International Applicants</h2>
+              </div>
+
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <div className="flex items-start gap-3 mb-4">
+                    <AlertCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Passport Name Requirement</h3>
+                      <p className="text-muted-foreground">
+                        International students <strong>MUST</strong> use their passport name on all application materials.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">English Proficiency Requirements</h3>
+                  <p className="text-muted-foreground mb-4">
+                    In order to undertake graduate study, students for whom English is not their first language must present evidence of competence in the use of the English language. Although we have no official score cut-off, you will have difficulty in the program without a level of language proficiency appropriate for graduate study.
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    Yale School of Art accepts the following English Proficiency exams to fulfill this requirement:
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">Test of English as a Foreign Language (TOEFL iBT)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">The International English Language Testing System (IELTS)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">The Duolingo English Test</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* TOEFL */}
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Test of English as a Foreign Language (TOEFL iBT)</h3>
+                  <p className="text-muted-foreground mb-4">
+                    The TOEFL iBT is administered by the Educational Testing Service. The TOEFL code number for the Yale School of Art is <strong>3982</strong>.
+                  </p>
+                  <div className="bg-primary/5 p-4 rounded-lg mb-4">
+                    <h4 className="font-semibold mb-2">Score Requirements:</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">
+                          Internet-based test (iBT): <strong>at least 100</strong> composite score, with speaking and listening scores of <strong>at least 28</strong>
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">
+                          Computer-based test: <strong>at least 250</strong>
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">
+                          Paper-based test (pbt): <strong>at least 550</strong>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-muted/50 p-4 rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <strong>Note:</strong> If the TOEFL iBT is not available in your area, you are required to complete the TOEFL that is available, plus you are required to take the Test of Spoken English (TSE).
+                    </p>
+                    <a
+                      href="https://www.ets.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline"
+                    >
+                      Visit ETS website →
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* IELTS */}
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">International English Language Testing System (IELTS)</h3>
+                  <p className="text-muted-foreground mb-4">
+                    IELTS test scores may be accepted with a <strong>minimum score of 7</strong>. Your ability to listen, read, write and speak in English will be assessed during the test. IELTS is graded on a scale of 1-9.
+                  </p>
+                  <div className="bg-muted/50 p-4 rounded-lg">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      IELTS is jointly owned by the British Council, IDP: IELTS Australia and Cambridge Assessment English.
+                    </p>
+                    <a
+                      href="https://www.ielts.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline"
+                    >
+                      Visit IELTS website →
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Duolingo */}
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Duolingo English Test</h3>
+                  <p className="text-muted-foreground mb-4">
+                    The Duolingo English Test is an online English proficiency test that can be taken online, on-demand, in under an hour. The test is taken via a computer with a camera and includes a proficiency score, video interview, and writing sample, which are shared with Yale when you send your results.
+                  </p>
+                  <div className="bg-primary/5 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Certified results are available within 48 hours of the test session. Students generally receive a score of <strong>120</strong>.
+                    </p>
+                  </div>
+                  <div className="bg-muted/50 p-4 rounded-lg">
+                    <a
+                      href="https://englishtest.duolingo.com/applicants"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary hover:underline"
+                    >
+                      Visit Duolingo English Test website →
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Waiver */}
+              <Card className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold mb-3 text-blue-900 dark:text-blue-200">English Proficiency Test Waiver</h3>
+                  <p className="text-sm text-blue-900 dark:text-blue-200 mb-2">
+                    The English Proficiency Test may be waived if the undergraduate degree has been obtained from a four-year, English-speaking institution.
+                  </p>
+                  <p className="text-sm text-blue-900 dark:text-blue-200">
+                    When completing your application, please submit without confirming your scores. Our faculty reviewers know to verify your language proficiency via transcripts.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
