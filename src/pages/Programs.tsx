@@ -220,14 +220,66 @@ const Programs = () => {
       title: "Painting/Printmaking",
       subtitle: "MFA in Painting/Printmaking",
       description: "The Painting/Printmaking program provides students with an opportunity to pursue advanced work in painting and printmaking. The curriculum encourages an interdisciplinary approach while maintaining the centrality of studio practice. Students develop their artistic voices through intensive studio work, critiques, and engagement with contemporary art discourse.",
+      overview: "Instruction in the program is rooted in the investigation of painting as a unique genre with its own complex syntax and history. Within this setting, the program encourages diversity of practice and interpretation, innovation, and experimentation.\n\nApproximately twenty-one students are admitted each year. At the core of instruction are individual and group critiques with faculty, visiting critics, and visiting artists. In addition, students participate in a variety of seminars taught by both faculty and critics. The study of printmaking is integrated into the painting program, and a student may concentrate in painting, printmaking, or a combination of the two.\n\nStudents work in individual 300-square-foot studios at 353 Crown Street adjacent to Green Hall. Students have access to a printmaking workshop in the Crown Street building, equipped with two etching presses and a lithography press, a fully equipped silkscreen facility, as well as digital resources available in the print studio, throughout the School, and at the Center for Collaborative Arts and Media.",
+      creditRequirements: "39 credits in area of concentration, including ART 949, and 21 additional credits, including a minimum of 3 academic credits in courses outside the School of Art.\n\nProvided that course and minimum requirements are met, students may elect to enroll in more than 15 credits per semester.",
       image: paintingImg,
       highlights: [
         "Two-year MFA program",
-        "Individual painting studios",
-        "Professional printmaking facilities",
-        "Weekly studio visits and critiques",
-        "Access to extensive art library",
+        "Approximately 21 students admitted annually",
+        "Individual 300 sq ft studios at 353 Crown Street",
+        "Printmaking workshop with etching and lithography presses",
+        "Silkscreen facility and digital resources",
         "Full tuition scholarship",
+      ],
+      typicalPlan: [
+        {
+          year: "First-year minimum credits",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 542/543", name: "Individual Criticism", credits: 6 },
+                { code: "ART 546", name: "Round Trip", credits: 3 },
+                { code: "ART 949", name: "Critical and Professional Practices", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 542/543", name: "Individual Criticism", credits: 6 },
+                { code: "ART 510", name: "Prit Crit", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 6 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
+        {
+          year: "Second-year minimum credits",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 544/545", name: "Individual Criticism", credits: 6 },
+                { code: "ART 511", name: "Prit Crit", credits: 3 },
+                { code: "ART 512/513", name: "Thesis", credits: 1.5 },
+                { code: "", name: "Academic or Studio Electives", credits: 4.5 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 544/545", name: "Individual Criticism", credits: 6 },
+                { code: "ART 512/513", name: "Thesis", credits: 1.5 },
+                { code: "", name: "Academic or Studio Electives", credits: 7.5 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
       ],
       curriculum: [
         {
