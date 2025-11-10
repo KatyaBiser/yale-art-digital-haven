@@ -18,7 +18,19 @@ const Programs = () => {
     subtitle: string;
     description: string;
     image: string;
+    overview?: string;
+    facilities?: string;
+    programStructure?: string;
+    creditRequirements?: string;
     highlights: string[];
+    typicalPlan?: Array<{
+      year: string;
+      semesters: Array<{
+        term: string;
+        courses: Array<{ code: string; name: string; credits: number }>;
+        totalCredits: number;
+      }>;
+    }>;
     curriculum: Array<{
       category: string;
       courses: Array<{ name: string; description: string }>;
@@ -29,14 +41,95 @@ const Programs = () => {
       title: "Graphic Design",
       subtitle: "MFA in Graphic Design",
       description: "The Graphic Design program at Yale School of Art emphasizes the development of a cohesive, intelligent, and inventive body of work, the acquisition of a variety of technical skills, and an understanding of design's implications in a global society. Students are challenged to expand their design capabilities and to evolve an independent voice while gaining fluency across media.",
+      overview: "The graphic design program focuses on the development of a cohesive, investigative body of work, also known as the student's thesis. At Yale, the graphic design thesis is conceived as a loose framework within which each student's visual method is deployed across many diverse projects during the two-year course of study. While every thesis project is unique, there are several common features: a focus on methodology, the application of a visual method to studio work, and the organization of the work in a thoughtfully argued written document and \"Thesis Book.\"\n\nThe individual collection of graphic design work by each student is supported on several levels simultaneously: studio work led by faculty meeting weekly; small six-person thesis groups meeting biweekly; individual sessions with writing and editing tutors; and lectures, presentations, and workshops.",
+      facilities: "The School of Art provides digital lab facilities however all graphic design students are expected to have their own personal computer. Each student has a designated work space in the design studio loft and has access to equipment including bookbinding materials, wide format printers, a RISO duplicator, Vandercook press, and work spaces in the School of Art buildings. More resources supporting interdisciplinary projects including motion capture and VR is available at the nearby Center for Collaborative Arts and Media. In addition, students draw on the extraordinary resources of Yale University courses, conferences, films, lectures, and museums, and especially the extensive research and rare book collections of Sterling, Haas, and Beinecke libraries. No metalcasting or ceramic facilities are available.",
+      programStructure: "Each year, up to ten students are admitted into the two-year graphic design program, and up to eight students are admitted into the preliminary-year program. Two-year program students typically have a BFA in Graphic Design and are expected to have substantial and distinguished professional experience. Students applying to the preliminary-year program typically have relevant experience in a field of study outside design and demonstrate evidence of strong visual acuity. After successful completion of the preliminary year, these students automatically continue on in the two-year M.F.A. program.",
+      creditRequirements: "60 credits total are required to graduate. 42 credits in your area of concentration (including Art 949a, Critical Practice), and 18 additional credits, including a minimum of 6 academic credits, which can be selected from throughout the University's rich offerings.",
       image: graphicDesignImg,
       highlights: [
-        "Two-year MFA program",
+        "Two-year MFA program with optional preliminary year",
+        "Up to 10 students admitted into two-year program annually",
         "Individual studio space for all students",
-        "Access to state-of-the-art facilities",
-        "Weekly critiques and seminars",
-        "Visiting designer lecture series",
+        "Access to RISO duplicator, Vandercook press, and bookbinding facilities",
+        "Weekly critiques and biweekly thesis groups",
         "Full tuition scholarship",
+      ],
+      typicalPlan: [
+        {
+          year: "Preliminary-Year Graphic Design",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 266", name: "Graphic Design Histories", credits: 3 },
+                { code: "ART 710", name: "Preliminary Studio", credits: 6 },
+                { code: "ART 712", name: "Prelim Typography", credits: 3 },
+                { code: "ART 714", name: "All Design Considered", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 369", name: "Interactive Design and the Internet", credits: 3 },
+                { code: "ART 468", name: "Advanced Graphic Design: Ad Hoc Series and Systems", credits: 3 },
+                { code: "ART 711", name: "Preliminary Studio", credits: 6 },
+                { code: "ART 715", name: "All Design Considered", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
+        {
+          year: "First-Year Graphic Design",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 720", name: "1st-year Graduate Studio", credits: 6 },
+                { code: "ART 949", name: "Critical and Professional Practices", credits: 3 },
+                { code: "", name: "Graphic Design Elective", credits: 3 },
+                { code: "", name: "Graphic Design, Studio, or Academic Elective", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 721", name: "1st-year Graduate Studio", credits: 6 },
+                { code: "ART 723", name: "Writing as Visual Practice", credits: 3 },
+                { code: "", name: "Graphic Design Elective", credits: 3 },
+                { code: "", name: "Graphic Design, Studio, or Academic Elective", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
+        {
+          year: "Second Year Graphic Design",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 730", name: "2nd-year Graduate Studio", credits: 3 },
+                { code: "ART 738", name: "Degree Presentation", credits: 6 },
+                { code: "", name: "Graphic Design Elective", credits: 3 },
+                { code: "", name: "Graphic Design, Studio, or Academic Elective", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 731", name: "2nd-year Graduate Studio", credits: 3 },
+                { code: "ART 739", name: "Degree Presentation", credits: 6 },
+                { code: "", name: "Graphic Design Elective", credits: 3 },
+                { code: "", name: "Graphic Design, Studio, or Academic Elective", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
       ],
       curriculum: [
         {
@@ -357,6 +450,108 @@ const Programs = () => {
           </div>
         </section>
 
+        {/* Program Overview - if exists */}
+        {program.overview && (
+          <section className="py-16 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Program Overview</h2>
+                <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                  {program.overview}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Facilities - if exists */}
+        {program.facilities && (
+          <section className="py-16">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Facilities</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {program.facilities}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Program Structure - if exists */}
+        {program.programStructure && (
+          <section className="py-16 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Two-year and Preliminary-year Programs</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {program.programStructure}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Credit Requirements - if exists */}
+        {program.creditRequirements && (
+          <section className="py-16">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Credit Requirements</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {program.creditRequirements}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Typical Plan of Study - if exists */}
+        {program.typicalPlan && (
+          <section className="py-16 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Typical Plan of Study</h2>
+                <div className="space-y-12">
+                  {program.typicalPlan.map((yearPlan, yearIndex) => (
+                    <div key={yearIndex}>
+                      <h3 className="text-2xl font-serif font-semibold mb-6 text-primary">{yearPlan.year}</h3>
+                      <div className="space-y-6">
+                        {yearPlan.semesters.map((semester, semIndex) => (
+                          <Card key={semIndex}>
+                            <CardContent className="p-6">
+                              <h4 className="text-xl font-semibold mb-4">{semester.term}</h4>
+                              <div className="space-y-3">
+                                {semester.courses.map((course, courseIndex) => (
+                                  <div key={courseIndex} className="flex justify-between items-start border-b border-border pb-2 last:border-0">
+                                    <div className="flex-1">
+                                      {course.code && (
+                                        <span className="text-sm font-mono text-primary mr-2">{course.code}</span>
+                                      )}
+                                      <span className="text-sm">{course.name}</span>
+                                    </div>
+                                    <span className="text-sm text-muted-foreground ml-4">{course.credits} credits</span>
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="mt-4 pt-4 border-t border-border">
+                                <div className="flex justify-between items-center font-semibold">
+                                  <span>Total minimum credits for {semester.term.toLowerCase()} term:</span>
+                                  <span className="text-primary">{semester.totalCredits} credits</span>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Highlights */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
@@ -374,41 +569,20 @@ const Programs = () => {
           </div>
         </section>
 
-        {/* Curriculum */}
+        {/* Course Bulletin PDF */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Curriculum</h2>
-              <div className="space-y-8">
-                {program.curriculum.map((category, index) => (
-                  <div key={index}>
-                    <h3 className="text-xl font-semibold mb-4 text-primary">{category.category}</h3>
-                    <div className="grid grid-cols-1 gap-4">
-                      {category.courses.map((course, courseIndex) => (
-                        <Card key={courseIndex} className="transition-smooth hover:shadow-md">
-                          <CardContent className="p-4">
-                            <p className="font-medium mb-2">{course.name}</p>
-                            <p className="text-sm text-muted-foreground leading-relaxed">{course.description}</p>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* PDF View Button */}
-              <div className="mt-10 pt-8 border-t border-border text-center">
-                <p className="text-muted-foreground mb-4">
-                  For complete course descriptions and academic regulations
-                </p>
-                <a href="/yale-art-digital-haven/School%20of%20Art%202025-2026.pdf" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="lg">
-                    <ArrowRight className="mr-2 h-5 w-5" />
-                    View Full Course Bulletin (PDF)
-                  </Button>
-                </a>
-              </div>
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Complete Course Information</h2>
+              <p className="text-muted-foreground mb-8">
+                For complete course descriptions and academic regulations
+              </p>
+              <a href="/yale-art-digital-haven/School%20of%20Art%202025-2026.pdf" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg">
+                  <ArrowRight className="mr-2 h-5 w-5" />
+                  View Full Course Bulletin (PDF)
+                </Button>
+              </a>
             </div>
           </div>
         </section>
