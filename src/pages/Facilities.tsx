@@ -7,6 +7,44 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
+import DL1 from "@/assets/Facilities/Digital Labs/DL1.jpg";
+import DL2 from "@/assets/Facilities/Digital Labs/DL2.jpg";
+import DL3 from "@/assets/Facilities/Digital Labs/DL3.jpg";
+
+import EC1 from "@/assets/Facilities/Equipment Checkout/EC1.jpg";
+import EC2 from "@/assets/Facilities/Equipment Checkout/EC2.jpg";
+import EC3 from "@/assets/Facilities/Equipment Checkout/EC3.jpg";
+
+import IS1 from "@/assets/Facilities/Individual Studios/IS1.png";
+import IS2 from "@/assets/Facilities/Individual Studios/IS2.png";
+import IS3 from "@/assets/Facilities/Individual Studios/IS3.png";
+import IS4 from "@/assets/Facilities/Individual Studios/IS4.png";
+
+import PF1 from "@/assets/Facilities/Photography Facilities/PF1.jpg";
+import PF2 from "@/assets/Facilities/Photography Facilities/PF2.jpg";
+import PF3 from "@/assets/Facilities/Photography Facilities/PF3.jpg";
+import PF4 from "@/assets/Facilities/Photography Facilities/PF4.jpg";
+import PF5 from "@/assets/Facilities/Photography Facilities/PF5.jpg";
+import PF6 from "@/assets/Facilities/Photography Facilities/PF6.jpg";
+
+import PM1 from "@/assets/Facilities/Printmaking Workshop/PM1.jpg";
+import PM2 from "@/assets/Facilities/Printmaking Workshop/PM2.jpg";
+import PM3 from "@/assets/Facilities/Printmaking Workshop/PM3.jpg";
+import PM4 from "@/assets/Facilities/Printmaking Workshop/PM4.jpg";
+import PM5 from "@/assets/Facilities/Printmaking Workshop/PM5.jpg";
+
+import SW1 from "@/assets/Facilities/Sculpture Workshop/SW1.jpg";
+import SW2 from "@/assets/Facilities/Sculpture Workshop/SW2.jpg";
+import SW3 from "@/assets/Facilities/Sculpture Workshop/SW3.jpg";
+import SW4 from "@/assets/Facilities/Sculpture Workshop/SW4.jpg";
+import SW5 from "@/assets/Facilities/Sculpture Workshop/SW5.jpg";
+import SW6 from "@/assets/Facilities/Sculpture Workshop/SW6.jpg";
+
+import SCR1 from "@/assets/Facilities/Seminars and Critique Rooms/SCR1.jpg";
+import SCR2 from "@/assets/Facilities/Seminars and Critique Rooms/SCR2.jpg";
+import SCR3 from "@/assets/Facilities/Seminars and Critique Rooms/SCR3.jpg";
+import SCR4 from "@/assets/Facilities/Seminars and Critique Rooms/SCR4.jpg";
+
 type FacilityType = "All" | "Studios" | "Workshops" | "Labs" | "Equipment";
 
 const Facilities = () => {
@@ -29,7 +67,7 @@ const Facilities = () => {
         "Individual electrical circuits",
         "Located in main building",
       ],
-      images: 4, // placeholder for 4 images
+      images: [IS1, IS2, IS3, IS4],
     },
     {
       category: "Printmaking Workshop",
@@ -43,7 +81,7 @@ const Facilities = () => {
         "Professional paper storage",
         "Master printer on staff",
       ],
-      images: 5,
+      images: [PM1, PM2, PM3, PM4, PM5],
     },
     {
       category: "Photography Facilities",
@@ -57,7 +95,7 @@ const Facilities = () => {
         "Epson large-format printers (44\" wide)",
         "Professional lighting studio",
       ],
-      images: 6,
+      images: [PF1, PF2, PF3, PF4, PF5, PF6],
     },
     {
       category: "Sculpture Workshops",
@@ -71,7 +109,7 @@ const Facilities = () => {
         "Professional tool library",
         "Expert technical staff",
       ],
-      images: 6,
+      images: [SW1, SW2, SW3, SW4, SW5, SW6],
     },
     {
       category: "Digital Labs",
@@ -85,7 +123,7 @@ const Facilities = () => {
         "Projection mapping capabilities",
         "High-speed network and server storage",
       ],
-      images: 3,
+      images: [DL1, DL2, DL3],
     },
     {
       category: "Equipment Checkout",
@@ -99,7 +137,7 @@ const Facilities = () => {
         "Lighting and projection equipment",
         "Online reservation system",
       ],
-      images: 3,
+      images: [EC1, EC2, EC3],
     },
     {
       category: "Seminar & Critique Rooms",
@@ -113,7 +151,7 @@ const Facilities = () => {
         "Multiple seminar rooms",
         "Individual meeting spaces",
       ],
-      images: 4,
+      images: [SCR1, SCR2, SCR3, SCR4],
     },
   ];
 
