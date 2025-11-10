@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-border bg-muted/30">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.2fr_1fr] gap-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 lg:gap-16 max-w-7xl mx-auto">
           {/* About */}
           <div>
             <img
