@@ -15,10 +15,10 @@ import EC1 from "@/assets/Facilities/Equipment Checkout/EC1.jpg";
 import EC2 from "@/assets/Facilities/Equipment Checkout/EC2.jpg";
 import EC3 from "@/assets/Facilities/Equipment Checkout/EC3.jpg";
 
-import IS1 from "@/assets/Facilities/Individual Studios/IS1.png";
-import IS2 from "@/assets/Facilities/Individual Studios/IS2.png";
-import IS3 from "@/assets/Facilities/Individual Studios/IS3.png";
-import IS4 from "@/assets/Facilities/Individual Studios/IS4.png";
+import IS1 from "@/assets/Facilities/Individual Studios/Is1.png";
+import IS2 from "@/assets/Facilities/Individual Studios/Is2.png";
+import IS3 from "@/assets/Facilities/Individual Studios/Is3.png";
+import IS4 from "@/assets/Facilities/Individual Studios/Is4.png";
 
 import PF1 from "@/assets/Facilities/Photography Facilities/PF1.jpg";
 import PF2 from "@/assets/Facilities/Photography Facilities/PF2.jpg";
@@ -33,17 +33,17 @@ import PM3 from "@/assets/Facilities/Printmaking Workshop/PM3.jpg";
 import PM4 from "@/assets/Facilities/Printmaking Workshop/PM4.jpg";
 import PM5 from "@/assets/Facilities/Printmaking Workshop/PM5.jpg";
 
-import SW1 from "@/assets/Facilities/Sculpture Workshop/SW1.jpg";
-import SW2 from "@/assets/Facilities/Sculpture Workshop/SW2.jpg";
-import SW3 from "@/assets/Facilities/Sculpture Workshop/SW3.jpg";
-import SW4 from "@/assets/Facilities/Sculpture Workshop/SW4.jpg";
-import SW5 from "@/assets/Facilities/Sculpture Workshop/SW5.jpg";
-import SW6 from "@/assets/Facilities/Sculpture Workshop/SW6.jpg";
+import SW1 from "@/assets/Facilities/Sculpture Workshops/SW1.jpg";
+import SW2 from "@/assets/Facilities/Sculpture Workshops/SW2.jpg";
+import SW3 from "@/assets/Facilities/Sculpture Workshops/SW3.jpg";
+import SW4 from "@/assets/Facilities/Sculpture Workshops/SW4.jpg";
+import SW5 from "@/assets/Facilities/Sculpture Workshops/SW5.jpg";
+import SW6 from "@/assets/Facilities/Sculpture Workshops/SW6.jpg";
 
-import SCR1 from "@/assets/Facilities/Seminars and Critique Rooms/SCR1.jpg";
-import SCR2 from "@/assets/Facilities/Seminars and Critique Rooms/SCR2.jpg";
-import SCR3 from "@/assets/Facilities/Seminars and Critique Rooms/SCR3.jpg";
-import SCR4 from "@/assets/Facilities/Seminars and Critique Rooms/SCR4.jpg";
+import SCR1 from "@/assets/Facilities/Seminar and Critique Rooms/SCR1.png";
+import SCR2 from "@/assets/Facilities/Seminar and Critique Rooms/SCR2.png";
+import SCR3 from "@/assets/Facilities/Seminar and Critique Rooms/SCR3.png";
+import SCR4 from "@/assets/Facilities/Seminar and Critique Rooms/SCR4.png";
 
 type FacilityType = "All" | "Studios" | "Workshops" | "Labs" | "Equipment";
 
@@ -161,20 +161,28 @@ const Facilities = () => {
     ? facilities
     : facilities.filter(facility => facility.type === selectedType);
 
-  // Generate placeholder images for galleries
-  const FacilityGallery = ({ facilityIndex, imageCount }: { facilityIndex: number; imageCount: number }) => (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-      {Array.from({ length: imageCount }).map((_, idx) => (
-        <div
-          key={idx}
-          className="aspect-video bg-muted rounded-lg flex items-center justify-center cursor-pointer hover:bg-muted/80 transition-smooth"
-          onClick={() => setSelectedImage(facilityIndex * 100 + idx)}
-        >
-          <Image className="h-12 w-12 text-muted-foreground/30" />
-        </div>
-      ))}
-    </div>
-  );
+  // Gallery component that displays actual images
+  const FacilityGallery = ({ facilityIndex, images }: { facilityIndex: number; images: string[] }) => {
+    const getImageIndex = (idx: number): number => facilityIndex * 100 + idx;
+    
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {images.map((imgSrc, idx) => (
+          <div
+            key={idx}
+            className="aspect-video bg-muted rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-smooth group"
+            onClick={() => setSelectedImage(getImageIndex(idx))}
+          >
+            <img
+              src={imgSrc}
+              alt={`${facilities[facilityIndex].category} - Image ${idx + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -252,10 +260,10 @@ const Facilities = () => {
                       </div>
                     </div>
 
-                    {/* Image Gallery Placeholder */}
+                    {/* Image Gallery */}
                     <div>
                       <h3 className="text-lg font-semibold mb-3">Gallery:</h3>
-                      <FacilityGallery facilityIndex={index} imageCount={facility.images} />
+                      <FacilityGallery facilityIndex={index} images={facility.images} />
                     </div>
                   </CardContent>
                 </Card>
@@ -295,7 +303,7 @@ const Facilities = () => {
 
       <Footer />
 
-      {/* Image Lightbox Modal (placeholder for future images) */}
+      {/* Image Lightbox Modal */}
       <Dialog open={selectedImage !== null} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-7xl w-full p-0 overflow-hidden">
           <div className="relative bg-black">
@@ -308,13 +316,27 @@ const Facilities = () => {
               <X className="h-6 w-6" />
             </Button>
 
-            <div className="flex items-center justify-center h-[85vh] bg-muted">
-              <Image className="h-24 w-24 text-muted-foreground/30" />
-            </div>
-
-            <div className="bg-white p-6">
-              <p className="text-muted-foreground text-center">Image placeholder - to be replaced</p>
-            </div>
+            {selectedImage !== null && (() => {
+              const facilityIdx = Math.floor(selectedImage / 100);
+              const imageIdx = selectedImage % 100;
+              const facility = facilities[facilityIdx];
+              const imageSrc = facility?.images[imageIdx];
+              
+              return imageSrc ? (
+                <>
+                  <div className="flex items-center justify-center h-[85vh] bg-black">
+                    <img
+                      src={imageSrc}
+                      alt={`${facility.category} - Image ${imageIdx + 1}`}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+                  <div className="bg-white p-6">
+                    <p className="text-muted-foreground text-center">{facility.category} - Image {imageIdx + 1}</p>
+                  </div>
+                </>
+              ) : null;
+            })()}
           </div>
         </DialogContent>
       </Dialog>

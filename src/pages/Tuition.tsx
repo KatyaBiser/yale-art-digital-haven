@@ -64,11 +64,11 @@ const Tuition = () => {
                         {costBreakdown.map((item, index) => (
                           <tr
                             key={index}
-                            className={\`border-b \${
+                            className={`border-b ${
                               item.highlight
                                 ? "bg-primary/10 font-bold text-lg"
                                 : "hover:bg-muted/50"
-                            }\`}
+                            }`}
                           >
                             <td className="py-4 pr-4">{item.item}</td>
                             <td className="text-right py-4 px-4 font-mono">{item.amount}</td>
