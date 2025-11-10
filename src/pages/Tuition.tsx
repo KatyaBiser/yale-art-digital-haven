@@ -2,58 +2,24 @@ import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { DollarSign, CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, DollarSign, GraduationCap, Briefcase, Users } from "lucide-react";
 
 const Tuition = () => {
   useEffect(() => {
     document.title = "Tuition & Financial Aid - Yale School of Art";
   }, []);
 
-  const tuitionData = [
-    { item: "Tuition (2024-2025)", amount: "$47,850", covered: "$47,850", note: "100% scholarship for all MFA students" },
-    { item: "Student Activities Fee", amount: "$125", covered: "$0", note: "Required for all students" },
-    { item: "Student Health Fee", amount: "$325", covered: "$0", note: "Covers student health services" },
-    { item: "Graduate Student Assembly Fee", amount: "$45", covered: "$0", note: "Optional but recommended" },
+  const costBreakdown = [
+    { item: "Tuition", amount: "$48,500" },
+    { item: "Books & Supplies", amount: "$5,796" },
+    { item: "Living Expenses (9 months)", amount: "$22,896", detail: "~$2,544/month" },
+    { item: "Yale Health Plan", amount: "$3,422", detail: "Included in living expenses" },
+    { item: "Total Cost of Attendance", amount: "$77,192", highlight: true },
   ];
 
-  const estimatedExpenses = [
-    { category: "Housing & Food", amount: "$18,480", note: "Average 12-month estimate" },
-    { category: "Books & Supplies", amount: "$2,450", note: "Art supplies, books, materials" },
-    { category: "Personal Expenses", amount: "$3,285", note: "Transportation, entertainment, misc." },
-    { category: "Health Insurance", amount: "$4,350", note: "Yale Student Health Insurance Plan (required if no coverage)" },
-  ];
-
-  const financialAidOptions = [
-    {
-      title: "Full Tuition Scholarship",
-      amount: "$47,850",
-      description: "All admitted MFA students automatically receive full tuition scholarships covering the entire two-year program. No separate application required.",
-      eligibility: "All admitted students",
-    },
-    {
-      title: "Need-Based Grants",
-      amount: "Up to $15,000/year",
-      description: "Additional grants available based on demonstrated financial need to help cover living expenses, materials, and other costs not covered by tuition scholarship.",
-      eligibility: "Based on FAFSA and CSS Profile",
-    },
-    {
-      title: "Teaching Fellowships",
-      amount: "$8,000 - $12,000/year",
-      description: "Competitive fellowships for second-year students to teach undergraduate courses or assist faculty with courses and critiques.",
-      eligibility: "Second-year students, application required",
-    },
-    {
-      title: "Research Assistantships",
-      amount: "$5,000 - $10,000/year",
-      description: "Opportunities to work with faculty on research projects, publications, exhibitions, or archival work.",
-      eligibility: "All students, by faculty invitation",
-    },
-    {
-      title: "Materials & Supplies Grants",
-      amount: "Up to $2,000/year",
-      description: "Additional funding for thesis projects, exhibitions, or projects requiring specialized materials or equipment.",
-      eligibility: "Application-based, prioritizes thesis work",
-    },
+  const fees = [
+    { name: "Hospitalization Insurance", amount: "$3,422", required: true, note: "Single student, calculated as part of living expense budget" },
+    { name: "Facilities Access/User Fee (Undergraduate art majors)", amount: "$200 per term", required: true, note: "Not applicable to MFA students" },
   ];
 
   return (
@@ -62,173 +28,266 @@ const Tuition = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-muted/30 to-background">
+        <section className="py-16 bg-primary text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+              <DollarSign className="h-16 w-16 mx-auto mb-6" />
+              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
                 Tuition & Financial Aid
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Transparent cost breakdown and comprehensive financial support
+              <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                Comprehensive information about costs, fees, and financial assistance for Yale School of Art MFA programs
               </p>
             </div>
           </div>
         </section>
 
-        {/* Key Highlight */}
-        <section className="py-12 bg-primary/5 border-y border-primary/20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <DollarSign className="h-12 w-12 text-primary" />
-                <div className="text-5xl font-bold text-primary">100%</div>
-              </div>
-              <h2 className="text-2xl font-semibold mb-3">Full Tuition Scholarship</h2>
-              <p className="text-lg text-muted-foreground">
-                All admitted MFA students receive full tuition scholarships covering $47,850 per year for the entire two-year program.
-                This means you pay $0 for tuition—no loans, no application required.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Tuition & Fees Table */}
+        {/* Tuition & Cost of Attendance */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">2024-2025 Tuition & Fees</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Tuition, Fees & Cost of Attendance</h2>
 
               <Card className="mb-8">
-                <CardContent className="p-0">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-semibold mb-6">2025-2026 Academic Year</h3>
                   <div className="overflow-x-auto">
                     <table className="w-full">
                       <thead>
-                        <tr className="border-b border-border bg-muted/30">
-                          <th className="text-left p-4 font-semibold">Item</th>
-                          <th className="text-right p-4 font-semibold">Annual Cost</th>
-                          <th className="text-right p-4 font-semibold">Scholarship Coverage</th>
-                          <th className="text-right p-4 font-semibold">Your Cost</th>
+                        <tr className="border-b-2 border-primary">
+                          <th className="text-left py-3 pr-4 font-semibold">Cost Item</th>
+                          <th className="text-right py-3 px-4 font-semibold">Amount</th>
+                          <th className="text-left py-3 pl-4 font-semibold">Details</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {tuitionData.map((item, index) => (
-                          <tr key={index} className="border-b border-border last:border-0">
-                            <td className="p-4">
-                              <div className="font-medium">{item.item}</div>
-                              <div className="text-sm text-muted-foreground">{item.note}</div>
-                            </td>
-                            <td className="text-right p-4 font-medium">{item.amount}</td>
-                            <td className="text-right p-4 text-green-600 font-medium">
-                              {item.covered === "$0" ? "-" : item.covered}
-                            </td>
-                            <td className="text-right p-4 font-bold">
-                              {item.covered === "$0" ? item.amount : "$0"}
+                        {costBreakdown.map((item, index) => (
+                          <tr
+                            key={index}
+                            className={\`border-b \${
+                              item.highlight
+                                ? "bg-primary/10 font-bold text-lg"
+                                : "hover:bg-muted/50"
+                            }\`}
+                          >
+                            <td className="py-4 pr-4">{item.item}</td>
+                            <td className="text-right py-4 px-4 font-mono">{item.amount}</td>
+                            <td className="text-sm text-muted-foreground py-4 pl-4">
+                              {item.detail || ""}
                             </td>
                           </tr>
                         ))}
-                        <tr className="bg-muted/30 font-bold">
-                          <td className="p-4">Total Annual Required Fees</td>
-                          <td className="text-right p-4">$48,345</td>
-                          <td className="text-right p-4 text-green-600">$47,850</td>
-                          <td className="text-right p-4 text-primary">$495</td>
-                        </tr>
                       </tbody>
                     </table>
+                  </div>
+
+                  <div className="mt-6 p-4 bg-muted rounded-lg">
+                    <p className="text-sm text-muted-foreground">
+                      <strong>Note:</strong> The Corporation of Yale University reserves the right to revise tuition rates as necessary.
+                      Books and supplies costs can vary based on the program, year, and students needs for class books and/or materials & equipment needed throughout the year for school-related purchases.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
 
-              <div className="flex items-start gap-3 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-lg border border-blue-200 dark:border-blue-900">
-                <AlertCircle className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-blue-900 dark:text-blue-100">
-                  <strong>Note:</strong> The full tuition scholarship of $47,850 is automatically awarded to all admitted students.
-                  You are only responsible for the mandatory fees totaling $495 per year.
-                </div>
-              </div>
+              {/* Living Expenses Note */}
+              <Card className="mb-8">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">About Living Expenses</h3>
+                  <p className="text-muted-foreground mb-4">
+                    The living expense budget for the 2025-2026 academic year (September - May) is $22,896. In other words,
+                    it is assumed that students at Yale School of Art can cover the cost of housing, utilities, food, health services,
+                    clothing and laundry, miscellaneous items, and in-school travel within a total budget of approximately $2,544 per month.
+                  </p>
+                  <p className="text-muted-foreground">
+                    It is expected that you will spend the greater part of your time in academic work; therefore, it is assumed that
+                    your lifestyle will be appropriate for a full-time student. To this end, you should be prepared to economize during your time here.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Fees */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Mandatory Fees</h3>
+                  <p className="text-sm text-muted-foreground mb-6">
+                    The following fees are charged each year to the Student Financial Services bill for use of and/or access to special facilities.
+                    This is a uniform mandatory fee that is refundable only upon withdrawal from the program, according to the tuition rebate schedule.
+                  </p>
+                  <div className="space-y-4">
+                    {fees.map((fee, index) => (
+                      <div key={index} className="p-4 border rounded-lg">
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold">{fee.name}</h4>
+                          <span className="font-mono text-primary">{fee.amount}</span>
+                        </div>
+                        <p className="text-sm text-muted-foreground">{fee.note}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+                    <p className="text-sm text-muted-foreground">
+                      In addition, certain undergraduate courses bear materials fees, and graduate art students enrolled in them will be billed.
+                      Refunds on course fees will not be made after the second week of classes each term. No partial refunds will be made on course fees.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Estimated Living Expenses */}
+        {/* Types of Financial Aid */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Estimated Living Expenses</h2>
-              <p className="text-muted-foreground mb-8">
-                While tuition is fully covered, students should budget for living expenses. Below is Yale's estimated
-                cost of living for graduate students in New Haven for the 12-month academic year:
-              </p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Types of Financial Aid</h2>
 
-              <Card className="mb-8">
-                <CardContent className="p-0">
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead>
-                        <tr className="border-b border-border bg-muted/30">
-                          <th className="text-left p-4 font-semibold">Expense Category</th>
-                          <th className="text-right p-4 font-semibold">Annual Estimate</th>
-                          <th className="text-left p-4 font-semibold">Notes</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {estimatedExpenses.map((expense, index) => (
-                          <tr key={index} className="border-b border-border last:border-0">
-                            <td className="p-4 font-medium">{expense.category}</td>
-                            <td className="text-right p-4 font-medium">{expense.amount}</td>
-                            <td className="p-4 text-sm text-muted-foreground">{expense.note}</td>
-                          </tr>
-                        ))}
-                        <tr className="bg-muted/30 font-bold">
-                          <td className="p-4">Total Estimated Living Expenses</td>
-                          <td className="text-right p-4 text-primary">$28,565</td>
-                          <td className="p-4 text-sm text-muted-foreground">Per academic year (12 months)</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
+                {/* Scholarships */}
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Total Cost of Attendance</h3>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Tuition & Fees</span>
-                        <span className="font-medium">$48,345</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <GraduationCap className="h-8 w-8 text-primary flex-shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-semibold mb-2">Scholarships</h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Grant or gift aid that does not have to be repaid
+                        </p>
                       </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Living Expenses</span>
-                        <span className="font-medium">$28,565</span>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      When the total amount of the student contribution, parent contribution, and loan and work-study offers does not
+                      meet an admitted student's full financial need, scholarship funds are awarded. Scholarships are also known as grant or
+                      gift aid and, unlike loans, do not have to be repaid.
+                    </p>
+                    <p className="text-muted-foreground mb-4">
+                      If your financial aid applications are received by the School's deadline and you have calculated need, the School makes
+                      every effort to award a scholarship to admitted students with scholarship eligibility. Scholarship availability is based
+                      on the number of students with calculated financial need within the School and the amount of funds available.
+                    </p>
+                    <div className="p-4 bg-primary/5 rounded-lg">
+                      <p className="text-sm font-semibold text-primary">
+                        The maximum scholarship for first-year students does not exceed tuition costs.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Loans */}
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <DollarSign className="h-8 w-8 text-primary flex-shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-semibold mb-2">Loans</h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Federal, Yale, and private loan options
+                        </p>
                       </div>
-                      <div className="border-t pt-2 flex justify-between font-bold">
-                        <span>Total Annual Cost</span>
-                        <span className="text-primary">$76,910</span>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      Admitted students with financial aid eligibility will have a portion of their financial need met with a loan offer.
+                    </p>
+                    <div className="space-y-4">
+                      <div className="p-4 border-l-4 border-primary bg-muted/50 rounded">
+                        <h4 className="font-semibold mb-2">Federal Direct Unsubsidized Loan</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Available to U.S. citizens and permanent residents
+                        </p>
+                      </div>
+                      <div className="p-4 border-l-4 border-primary bg-muted/50 rounded">
+                        <h4 className="font-semibold mb-2">Yale Student Loan</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Available to non-U.S. citizens and non-permanent residents
+                        </p>
+                      </div>
+                      <div className="p-4 border-l-4 border-primary bg-muted/50 rounded">
+                        <h4 className="font-semibold mb-2">Private Loans</h4>
+                        <p className="text-sm text-muted-foreground mb-2">
+                          Available through private lenders, such as banks, online lenders, and credit unions. Creditworthy U.S. citizens
+                          may apply for private loans without a co-signer, and international students typically need a creditworthy
+                          U.S. Citizen/Permanent Resident co-signer to apply.
+                        </p>
+                        <a
+                          href="https://www.elmselect.com/v4/school/156/program/5/program-detail"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary hover:underline"
+                        >
+                          View private loan options at ELM Select →
+                        </a>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
 
+                {/* Work-Study */}
                 <Card>
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Your Responsibility</h3>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Mandatory Fees</span>
-                        <span className="font-medium">$495</span>
+                    <div className="flex items-start gap-4 mb-4">
+                      <Briefcase className="h-8 w-8 text-primary flex-shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-semibold mb-2">Work-Study & Part-Time Employment</h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          On-campus employment opportunities
+                        </p>
                       </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Living Expenses</span>
-                        <span className="font-medium">$28,565</span>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      Work-study as part of your financial aid award indicates eligibility for a job within Yale. There are a number of jobs
+                      within the School of Art (admissions, labs, studio crews, etc.). If you are awarded a job within the School, you will be
+                      notified by the supervisor.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">
+                          4-6 hours per week during regular academic year
+                        </span>
                       </div>
-                      <div className="border-t pt-2 flex justify-between font-bold">
-                        <span>Estimated Out-of-Pocket</span>
-                        <span className="text-primary">$29,060</span>
+                      <div className="flex items-start gap-2">
+                        <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">
+                          Students are paid directly
+                        </span>
                       </div>
-                      <div className="text-xs text-muted-foreground mt-2">
-                        *Can be reduced with grants, fellowships, and work opportunities
+                    </div>
+                    <div className="p-4 bg-muted rounded-lg">
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Work-study positions available within the School of Art may be limited, and not all MFA students will necessarily be
+                        assigned a job within the School. So it is suggested you examine the Yale Student Employment Office (246 Church Street)
+                        online student job search. This job search engine lists campus, community service (Federal Work Study), and other
+                        categories of employment for which you can apply online.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Teaching Assistant Positions */}
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4 mb-4">
+                      <Users className="h-8 w-8 text-primary flex-shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-semibold mb-2">Teaching Assistant Positions</h3>
+                        <p className="text-sm text-primary font-semibold mb-4">
+                          Returning/Second-year students ONLY
+                        </p>
                       </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">
+                      School of Art faculty select Teaching Assistants each year from the second-year class. Pay is a flat rate for the term
+                      and is determined by the class's number of hours and sections.
+                    </p>
+                    <p className="text-muted-foreground mb-4">
+                      At the time they are assigned, Teaching Assistantships are not determined through financial need; however, the amount a
+                      student earns is considered a term-time earning and may reduce a student's total need insofar as the financial award is concerned.
+                    </p>
+                    <div className="p-4 bg-primary/5 rounded-lg">
+                      <p className="text-sm font-semibold">
+                        Teaching Assistants normally receive an appointment for one term.
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -237,148 +296,98 @@ const Tuition = () => {
           </div>
         </section>
 
-        {/* Financial Aid Options */}
+        {/* Student Accounts & Billing */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Additional Financial Aid</h2>
-              <p className="text-lg text-muted-foreground mb-12">
-                Beyond the full tuition scholarship, Yale School of Art offers multiple forms of financial assistance
-                to help students cover living expenses, materials, and other costs.
-              </p>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Student Accounts, Billing and Payment</h2>
 
-              <div className="space-y-6">
-                {financialAidOptions.map((option, index) => (
-                  <Card key={index}>
-                    <CardContent className="p-6">
-                      <div className="flex flex-col md:flex-row md:items-start gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="bg-primary/10 text-primary font-bold px-4 py-2 rounded-lg text-center">
-                            {option.amount}
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-semibold mb-2">{option.title}</h3>
-                          <p className="text-muted-foreground mb-3">{option.description}</p>
-                          <div className="flex items-center gap-2 text-sm">
-                            <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                            <span className="text-muted-foreground">
-                              <strong>Eligibility:</strong> {option.eligibility}
-                            </span>
-                          </div>
-                        </div>
+              <Card className="mb-6">
+                <CardContent className="p-6">
+                  <p className="text-muted-foreground mb-4">
+                    Student accounts, billing, and related services are administered through the <strong>Office of Student Financial Services</strong>,
+                    which is located at <strong>246 Church Street</strong>.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Electronic Billing: YalePay</h3>
+                      <p className="text-muted-foreground mb-2">
+                        Yale University's official means of communicating monthly financial account information is through the University's
+                        Internet-based system for electronic billing and payment, YalePay. Yale does not mail paper bills.
+                      </p>
+                      <a
+                        href="https://student-accounts.yale.edu/understanding-your-bill/your-student-account"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-primary hover:underline"
+                      >
+                        Learn more about your student account →
+                      </a>
+                    </div>
+
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2">Payment Options</h3>
+                      <p className="text-muted-foreground mb-2">
+                        Multiple payment options are available, including the Yale Payment Plan for those who need to spread payments over a period of months.
+                      </p>
+                      <div className="space-y-1">
+                        <a
+                          href="https://student-accounts.yale.edu/understanding-your-bill/tuition-due-dates"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-sm text-primary hover:underline"
+                        >
+                          View term fee due dates and late fees →
+                        </a>
+                        <a
+                          href="https://student-accounts.yale.edu/paying-your-bill/payment-options"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-sm text-primary hover:underline"
+                        >
+                          Explore payment options →
+                        </a>
+                        <a
+                          href="https://student-accounts.yale.edu/paying-your-bill/yale-payment-plan"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-sm text-primary hover:underline"
+                        >
+                          Learn about the Yale Payment Plan →
+                        </a>
                       </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
 
-        {/* How to Apply for Aid */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">How to Apply for Financial Aid</h2>
-
-              <div className="space-y-6">
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">1. Full Tuition Scholarship</h3>
-                    <p className="text-muted-foreground mb-3">
-                      <strong>No application required.</strong> The full tuition scholarship is automatically awarded
-                      to all admitted students with your acceptance letter.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">2. Need-Based Grants</h3>
-                    <p className="text-muted-foreground mb-3">
-                      To be considered for need-based grants, complete both:
-                    </p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          <strong>FAFSA (Free Application for Federal Student Aid)</strong> - Submit by February 1 for priority consideration
-                        </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-muted-foreground">
-                          <strong>CSS Profile</strong> - Required for institutional aid, submit by February 1
-                        </span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">3. Fellowships & Assistantships</h3>
-                    <p className="text-muted-foreground mb-3">
-                      Applications for teaching fellowships and research assistantships are typically announced in the spring semester.
-                      Students will receive information from the School of Art and individual departments about available positions.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">4. Materials & Supplies Grants</h3>
-                    <p className="text-muted-foreground mb-3">
-                      Application forms are available through the School of Art Student Services office.
-                      Typically awarded twice per year (fall and spring). Priority given to thesis projects.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Payment Information */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Payment Information</h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Payment Deadlines</h3>
-                    <ul className="space-y-2">
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground"><strong>Fall Term:</strong> August 15</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground"><strong>Spring Term:</strong> January 5</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">Payment plans available</span>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">Contact Financial Aid</h3>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li><strong>Email:</strong> finaid.art@yale.edu</li>
-                      <li><strong>Phone:</strong> (203) 432-2864</li>
-                      <li><strong>Office:</strong> 1156 Chapel Street, Room 153</li>
-                      <li><strong>Hours:</strong> Mon-Fri, 9am-5pm</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
+              <Card className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-semibold mb-4 text-red-900 dark:text-red-200">Important Information</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-red-900 dark:text-red-200">
+                        No degrees will be conferred, and no transcripts will be furnished until all fees due the University are paid in full.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-red-900 dark:text-red-200">
+                        Transcripts will not be furnished to any student or former student who is in default on the payment of a student loan.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-red-900 dark:text-red-200">
+                        The University may withhold registration and certain University privileges from students who have not paid their term fees
+                        or made satisfactory payment arrangements by the day of registration.
+                      </span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
