@@ -199,7 +199,7 @@ const About = () => {
                       Aperture Magazine. Currently teaches at Columbia University and exhibits internationally.
                     </p>
                     <Button variant="outline" size="sm" className="w-full" asChild>
-                      <a href="riyablin.github.io/mariya-batan-portfolio" target="_blank" rel="noopener noreferrer">
+                      <a href="https://riyablin.github.io/mariya-batan-portfolio" target="_blank" rel="noopener noreferrer">
                         View Portfolio <ExternalLink className="ml-2 h-3 w-3" />
                       </a>
                     </Button>
