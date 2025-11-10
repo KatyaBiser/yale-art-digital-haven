@@ -11,6 +11,7 @@ import ElenaRodriguezPhoto from "@/assets/Alumni/Elena-Rodriguez.jpg";
 import DavidParkPhoto from "@/assets/Alumni/David-Park.jpg";
 import AishaOsmanPhoto from "@/assets/Alumni/Aisha Osman.jpg";
 import JamesThompsonPhoto from "@/assets/Alumni/James-Thompson.jpg";
+import MariyaBatanPhoto from "@/assets/Alumni/Mariya-Batan.jpg";
 
 const About = () => {
   useEffect(() => {
@@ -188,8 +189,12 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Alumni Card 1 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden">
-                    <Users className="h-20 w-20 text-primary/40" />
+                  <div className="aspect-square bg-muted overflow-hidden">
+                    <img
+                      src={MariyaBatanPhoto}
+                      alt="Mariya Batan"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Mariya Batan</h3>
