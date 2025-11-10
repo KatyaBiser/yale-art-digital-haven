@@ -199,19 +199,20 @@ const Works = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8 text-center">
-                Current & Upcoming Exhibitions
+                Upcoming Exhibitions
               </h2>
               <div className="space-y-6">
                 <div className="bg-card p-6 rounded-lg shadow-elegant">
-                  <h3 className="text-xl font-semibold mb-2">MFA Thesis Exhibition 2024</h3>
-                  <p className="text-muted-foreground mb-2">May 1 - May 31, 2024</p>
+                  <h3 className="text-xl font-semibold mb-2">MFA Thesis Exhibition 2025</h3>
+                  <p className="text-muted-foreground mb-2">December 20 - December 30, 2025
+                  </p>
                   <p className="text-muted-foreground">
                     Annual exhibition showcasing thesis projects from graduating MFA students across all programs.
                   </p>
                 </div>
                 <div className="bg-card p-6 rounded-lg shadow-elegant">
                   <h3 className="text-xl font-semibold mb-2">First Year Review Exhibition</h3>
-                  <p className="text-muted-foreground mb-2">December 5 - December 20, 2024</p>
+                  <p className="text-muted-foreground mb-2">January 10 - January 30, 2026</p>
                   <p className="text-muted-foreground">
                     First-year MFA students present works from their initial year of study.
                   </p>
