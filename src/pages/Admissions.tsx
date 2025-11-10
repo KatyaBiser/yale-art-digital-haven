@@ -374,7 +374,7 @@ const Admissions = () => {
                   <AccordionTrigger className="text-xl font-semibold hover:no-underline">
                     Graphic Design Portfolio Requirements
                   </AccordionTrigger>
-                  <AccordionContent className="pt-4">\
+                  <AccordionContent className="pt-4">
 
               {/* Review Process */}
               <Card className="mb-6">
