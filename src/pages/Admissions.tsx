@@ -4,6 +4,12 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Calendar, CheckCircle, AlertCircle, Image } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Admissions = () => {
   useEffect(() => {
@@ -352,13 +358,23 @@ const Admissions = () => {
           </div>
         </section>
 
-        {/* Graphic Design Portfolio Requirements Section */}
+        {/* Program-Specific Portfolio Requirements Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">
-                Graphic Design Portfolio Requirements
+                Program-Specific Portfolio Requirements
               </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Each program has specific portfolio requirements. Select your program below to view detailed guidelines.
+              </p>
+
+              <Accordion type="single" collapsible className="space-y-4">{/* Graphic Design */}
+                <AccordionItem value="graphic-design" className="border rounded-lg px-6 bg-card">
+                  <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                    Graphic Design Portfolio Requirements
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-4">\
 
               {/* Review Process */}
               <Card className="mb-6">
@@ -585,6 +601,612 @@ const Admissions = () => {
                   </div>
                 </CardContent>
               </Card>
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Painting/Printmaking */}
+                <AccordionItem value="painting-printmaking" className="border rounded-lg px-6 bg-card">
+                  <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                    Painting/Printmaking Portfolio Requirements
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-4">
+
+                    {/* File Format */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">File Format</h3>
+                        <p className="text-muted-foreground mb-4">
+                          Portfolios are submitted online as part of the online application. The portfolio submission
+                          interface will allow you to label each image with a title, a date of completion, the materials
+                          used, and a brief description of the work.
+                        </p>
+                        <div className="bg-muted/50 p-4 rounded-lg">
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Please do not embed your name in the titles of your work
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Limit titles to thirty (30) characters
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Digital files must adhere strictly to the specifications outlined below
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Portfolio Contents */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Portfolio Contents</h3>
+                        <p className="text-muted-foreground mb-4">
+                          Upload a total of <strong>sixteen (16) still images and/or moving image files</strong>.
+                        </p>
+                        <ul className="space-y-3 mb-4">
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Only work completed within the last three years should be included
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              At least half (8) should be work made in the last twelve months
+                            </span>
+                          </li>
+                        </ul>
+
+                        <div className="bg-primary/5 p-4 rounded-lg mb-4">
+                          <h4 className="font-semibold mb-2">Important Guidelines:</h4>
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                The admissions committee is concerned with scale and the tactility of the work
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Paintings and drawings must be photographed showing the edge of the work
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                <strong>Do NOT digitally mask paintings and drawings in black to the edges of the work</strong>
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Three-dimensional works should show the surrounding space and context
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Do not include detail photos unless absolutely necessary (maximum of 2 detail shots)
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Portfolio Formatting */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Portfolio Formatting</h3>
+
+                        <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 p-4 rounded-lg mb-4">
+                          <h4 className="font-semibold text-red-900 dark:text-red-200 mb-2">Critical Requirements:</h4>
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Do NOT format images in presentation programs (PowerPoint, Keynote, PDF)
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                PDFs and presentation formats are not viewable - only first page/slide will display
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Do NOT include title or caption in the image file - it decreases viewable area
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="space-y-3">
+                          <p className="text-sm text-muted-foreground">
+                            Media files as large as 5GB are supported, but larger files take longer to upload and may
+                            stall on wireless connections. Uploaded documents (transcripts) may contain no more than 75 pages.
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            Works display in chronological order by year in the image data. If you have multiple pieces
+                            within a single year, you can arrange them in any order within that group.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Video Requirements */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Video Requirements</h3>
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Video files should be no longer than <strong>one minute in length</strong>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Videos longer than one minute will automatically time out at one minute
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Videos are part of your 16 file selection - don't use to show additional still images
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Do NOT include titles or credits within video files
+                            </span>
+                          </li>
+                        </ul>
+
+                        <div className="bg-muted/50 p-4 rounded-lg mt-4">
+                          <p className="text-sm text-muted-foreground">
+                            If you are primarily a video artist and wish to submit a longer video, you may post the video
+                            to your own website and provide the link at the end of your statement. Note, however, that the
+                            admissions committee will not be in the position to review works of extensive length.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* File Types */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Accepted File Types</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Video:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .3g2, .3gp, .avi, .m2v, .m4v, .mkv, .mov, .mpeg, .mpg, .mp4, .mxf, .webm, .wmv
+                            </p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Audio:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .aac, .m4a, .mka, .mp3, .oga, .ogg, .wav
+                            </p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Images:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .bmp, .jpg, .jpeg, .png, .tif, .tiff
+                            </p>
+                            <p className="text-xs text-red-600 dark:text-red-400 mt-2">
+                              Avoid .gif files - they don't work well in the system
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Photography */}
+                <AccordionItem value="photography" className="border rounded-lg px-6 bg-card">
+                  <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                    Photography Portfolio Requirements
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-4">
+
+                    {/* Portfolio Contents */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Portfolio Contents</h3>
+                        <p className="text-muted-foreground mb-4">
+                          Portfolios are submitted online as part of the online application. The portfolio submission
+                          interface will allow you to label each image with a title, a date of completion, the materials
+                          used, and a brief description of the work.
+                        </p>
+                        <div className="bg-muted/50 p-4 rounded-lg mb-4">
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Please do not embed your name in the titles of your work
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Limit titles to thirty (30) characters
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Digital files must adhere strictly to the specifications outlined below
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="bg-primary/5 p-4 rounded-lg">
+                          <h4 className="font-semibold mb-3">Upload Requirements:</h4>
+                          <ul className="space-y-3">
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Upload a total of <strong>twenty (20) still images and/or moving image files</strong>
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                A significant number of images should represent work done within the last twelve months
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                <strong>Important:</strong> If presenting both still and moving images, present them in two groups
+                                with all still images followed by all moving images
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Within these groups, place all files in chronological order (oldest to most recent)
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Chronological order of year is embedded in the system - you will not be able to override it
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Portfolio Format */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Portfolio Format</h3>
+
+                        <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 p-4 rounded-lg mb-4">
+                          <h4 className="font-semibold text-red-900 dark:text-red-200 mb-2">Critical Requirements:</h4>
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Do NOT format images in presentation programs (PowerPoint, Keynote, PDF)
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                PDFs and presentation formats are not viewable - only first page/slide will display
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Do NOT include title or caption in the image file - it decreases viewable area
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="space-y-3">
+                          <p className="text-sm text-muted-foreground">
+                            Media files as large as 5GB are supported, but larger files take longer to upload and may
+                            stall on wireless connections. Uploaded documents (transcripts) may be PDF format and contain
+                            no more than 75 pages.
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            Works display in chronological order by year in the image data. This is an embedded feature
+                            in the system structure. For example, art #1 made in 2021, art #2 made in 2022, and art #3
+                            made in 2024 will appear in that order. However, if you have multiple pieces within a single
+                            year, you can arrange them in any order within that group.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Video Requirements */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Video Requirements</h3>
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Video files should be no longer than <strong>two minutes in length</strong>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Videos longer than two minutes will automatically time out at two minutes
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Videos are part of your 20 file selection - don't use to show additional still images
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Do NOT include titles or credits within video files
+                            </span>
+                          </li>
+                        </ul>
+
+                        <div className="bg-muted/50 p-4 rounded-lg mt-4">
+                          <p className="text-sm text-muted-foreground">
+                            If you are primarily a video artist and wish to submit a longer video, you may post the video
+                            to your own website and provide the link at the end of your statement. Note, however, that the
+                            admissions committee will not be in the position to review works of extensive length.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* File Types */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Accepted File Types</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Video:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .3g2, .3gp, .avi, .m2v, .m4v, .mkv, .mov, .mpeg, .mpg, .mp4, .mxf, .webm, .wmv
+                            </p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Audio:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .aac, .m4a, .mka, .mp3, .oga, .ogg, .wav
+                            </p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Images:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .bmp, .jpg, .jpeg, .png, .tif, .tiff
+                            </p>
+                            <p className="text-xs text-red-600 dark:text-red-400 mt-2">
+                              Avoid .gif files - they don't work well in the system
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                  </AccordionContent>
+                </AccordionItem>
+
+                {/* Sculpture */}
+                <AccordionItem value="sculpture" className="border rounded-lg px-6 bg-card">
+                  <AccordionTrigger className="text-xl font-semibold hover:no-underline">
+                    Sculpture Portfolio Requirements
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-4">
+
+                    {/* Portfolio Contents */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Portfolio Contents</h3>
+                        <p className="text-muted-foreground mb-4">
+                          Portfolios are submitted online as part of the online application. The portfolio submission
+                          interface will allow you to label each image with a title, a date of completion, the materials
+                          used, and a brief description of the work.
+                        </p>
+                        <div className="bg-muted/50 p-4 rounded-lg mb-4">
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Please do not embed your name in the titles of your work
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Limit titles to thirty (30) characters
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Digital files must adhere strictly to the specifications outlined below
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="bg-primary/5 p-4 rounded-lg">
+                          <h4 className="font-semibold mb-3">Upload Requirements:</h4>
+                          <ul className="space-y-3">
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                Upload a total of <strong>twenty (20) still images and/or time-based files</strong>
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                A significant number of images should represent work done within the last twelve months
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-muted-foreground">
+                                <strong>Three-dimensional works should show the surrounding space and context</strong>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Portfolio Format */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Portfolio Format</h3>
+
+                        <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 p-4 rounded-lg mb-4">
+                          <h4 className="font-semibold text-red-900 dark:text-red-200 mb-2">Critical Requirements:</h4>
+                          <ul className="space-y-2">
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Each still image file may be no larger than <strong>16 MB</strong>
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Do NOT format images in presentation programs (PowerPoint, Keynote)
+                              </span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-red-900 dark:text-red-200">
+                                Do NOT include composite images (more than one work per file)
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <div className="space-y-3">
+                          <p className="text-sm text-muted-foreground">
+                            Works display in chronological order by year in the image data. This is an embedded feature
+                            in the system structure. For example, art #1 made in 2021, art #2 made in 2022, and art #3
+                            made in 2024 will appear in that order. However, if you have multiple pieces within a single
+                            year, you can arrange them in any order within that group.
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            Media files as large as 5GB are supported, but larger files take longer to upload and may
+                            stall on wireless connections. Uploaded documents (transcripts) may be PDF format and contain
+                            no more than 75 pages.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Video Requirements */}
+                    <Card className="mb-6">
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Video and Time-Based Media Requirements</h3>
+                        <ul className="space-y-3">
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Video files should be no longer than <strong>two minutes in length</strong>
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Videos longer than two minutes will automatically time out at two minutes
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Videos are part of your 20 file selection - don't use to show additional still images
+                            </span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <AlertCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">
+                              Do NOT include titles or credits within video files
+                            </span>
+                          </li>
+                        </ul>
+
+                        <div className="bg-muted/50 p-4 rounded-lg mt-4">
+                          <p className="text-sm text-muted-foreground mb-2">
+                            If you are primarily a <strong>video, performance, or sound artist</strong> and wish to submit
+                            a longer video or sound file, you may post the video to your own website and provide the link
+                            at the end of your statement.
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            Note, however, that the admissions committee will not be in a position to review works of
+                            extensive length.
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* File Types */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h3 className="text-xl font-semibold mb-4">Accepted File Types</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Video:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .3g2, .3gp, .avi, .m2v, .m4v, .mkv, .mov, .mpeg, .mpg, .mp4, .mxf, .webm, .wmv
+                            </p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Audio:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .aac, .m4a, .mka, .mp3, .oga, .ogg, .wav
+                            </p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Images:</p>
+                            <p className="text-xs text-muted-foreground">
+                              .bmp, .jpg, .jpeg, .png, .tif, .tiff
+                            </p>
+                            <p className="text-xs text-red-600 dark:text-red-400 mt-2">
+                              Avoid .gif files - they don't work well in the system
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                  </AccordionContent>
+                </AccordionItem>
+
+              </Accordion>
             </div>
           </div>
         </section>
