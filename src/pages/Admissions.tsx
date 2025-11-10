@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
@@ -359,7 +360,7 @@ const Admissions = () => {
         </section>
 
         {/* International Applicants Section */}
-        <section className="py-16 bg-muted/30">
+        <section id="international-applicants" className="py-16 bg-muted/30 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-center gap-3 mb-8">
@@ -518,7 +519,7 @@ const Admissions = () => {
         </section>
 
         {/* Program-Specific Portfolio Requirements Section */}
-        <section className="py-16 bg-muted/30">
+        <section id="portfolio-requirements" className="py-16 bg-muted/30 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">

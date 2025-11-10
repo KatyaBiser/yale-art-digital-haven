@@ -181,7 +181,7 @@ const Search = () => {
                 {filteredResults.map((item, index) => (
                   <Card key={index} className="transition-smooth hover:shadow-hover">
                     <CardContent className="p-6">
-                      <Link to={item.path}>
+                      <Link to={`${item.path}${item.anchor ? `?anchor=${item.anchor}` : ''}`}>
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-2">

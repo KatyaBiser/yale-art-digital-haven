@@ -138,14 +138,14 @@ const Tuition = () => {
         </section>
 
         {/* Types of Financial Aid */}
-        <section className="py-16 bg-muted/30">
+        <section id="financial-aid" className="py-16 bg-muted/30 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Types of Financial Aid</h2>
 
               <div className="grid grid-cols-1 gap-6">
                 {/* Scholarships */}
-                <Card>
+                <Card id="scholarships">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <GraduationCap className="h-8 w-8 text-primary flex-shrink-0" />
@@ -175,7 +175,7 @@ const Tuition = () => {
                 </Card>
 
                 {/* Loans */}
-                <Card>
+                <Card id="loans">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <DollarSign className="h-8 w-8 text-primary flex-shrink-0" />
@@ -223,7 +223,7 @@ const Tuition = () => {
                 </Card>
 
                 {/* Work-Study */}
-                <Card>
+                <Card id="work-study">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <Briefcase className="h-8 w-8 text-primary flex-shrink-0" />
@@ -265,7 +265,7 @@ const Tuition = () => {
                 </Card>
 
                 {/* Teaching Assistant Positions */}
-                <Card>
+                <Card id="teaching-assistants">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4 mb-4">
                       <Users className="h-8 w-8 text-primary flex-shrink-0" />
@@ -393,7 +393,7 @@ const Tuition = () => {
         </section>
 
         {/* Housing and Dining */}
-        <section className="py-16 bg-muted/30">
+        <section id="housing-dining" className="py-16 bg-muted/30 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Housing and Dining</h2>
@@ -501,7 +501,7 @@ const Tuition = () => {
         </section>
 
         {/* Tuition Rebate and Refund Policy */}
-        <section className="py-16">
+        <section id="refund-policy" className="py-16 scroll-mt-20">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">Tuition Rebate and Refund Policy</h2>
