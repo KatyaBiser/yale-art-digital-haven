@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-border bg-muted/30">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr] gap-8 lg:gap-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto">
           {/* About */}
           <div>
             <img
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
 
           {/* Newsletter */}
-          <div>
+          <div className="lg:justify-self-center">
             <h3 className="text-lg font-serif font-semibold mb-4">Subscribe to Our Newsletter</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Stay updated with latest news, events, and exhibitions.
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
 
           {/* Sitemap */}
-          <div>
+          <div className="lg:justify-self-center">
             <h3 className="text-lg font-serif font-semibold mb-4">Sitemap</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -103,7 +103,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div>
+          <div className="lg:justify-self-center">
             <h3 className="text-lg font-serif font-semibold mb-4">Contact</h3>
             <div className="space-y-3 text-sm">
               <a
