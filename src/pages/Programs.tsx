@@ -449,14 +449,66 @@ const Programs = () => {
       title: "Sculpture",
       subtitle: "MFA in Sculpture",
       description: "The Sculpture program encourages students to explore the expanded field of three-dimensional art-making. Students work with traditional materials and processes while also engaging with installation, video, performance, and new media. The program emphasizes conceptual rigor and technical skill in equal measure.",
+      overview: "The sculpture program offers students the opportunity to develop their work in a supportive environment consisting of critical feedback in a broad array of diverse voices. The field of sculpture includes a varied collection of working methods and outcomes—one set of tools is not privileged over another—creating a healthy and experimental program that mirrors the issues facing artists outside of the institution. Students work independently in individual studio spaces and have access to common areas for the critique of their work. 36 Edgewood houses the sculpture program and has a woodworking shop, a metal shop, and a computer lab, while additional resources are offered by the School of Art and the University at large. No metal-casting or ceramic facilities are available.\n\nThe main focus of this program is to facilitate the development of conversation and constructive critique among students and faculty. Our aim is to articulate student work vis-à-vis its own trajectory and in relation to art history and the current moment. This conversation is formally structured to take place one-on-one between students and faculty, in small groups, and within a larger group involving the whole sculpture department.\n\nApproximately ten students are admitted each year.",
+      creditRequirements: "42 credits in area of concentration, including ART 949a, and 18 additional credits, including a minimum of 6 academic credits in courses outside the School of Art.",
       image: sculptureImg,
       highlights: [
         "Two-year MFA program",
-        "Individual studio spaces",
-        "Extensive workshop facilities",
-        "Metalworking, woodworking, and fabrication shops",
-        "Digital fabrication lab",
+        "Approximately 10 students admitted annually",
+        "Individual studio spaces at 36 Edgewood",
+        "Woodworking shop, metal shop, and computer lab",
+        "Diverse critique formats: one-on-one, small groups, and full department",
         "Full tuition scholarship",
+      ],
+      typicalPlan: [
+        {
+          year: "First year minimum credits",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 645", name: "Individual Criticism", credits: 6 },
+                { code: "ART 630", name: "Studio Seminar", credits: 3 },
+                { code: "ART 949a", name: "Critical Practice", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 645", name: "Individual Criticism", credits: 6 },
+                { code: "ART 630", name: "Studio Seminar", credits: 3 },
+                { code: "", name: "Sculpture Elective", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 3 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
+        {
+          year: "Second year minimum credits",
+          semesters: [
+            {
+              term: "Fall",
+              courses: [
+                { code: "ART 645", name: "Individual Criticism", credits: 6 },
+                { code: "ART 630", name: "Studio Seminar", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 6 },
+              ],
+              totalCredits: 15,
+            },
+            {
+              term: "Spring",
+              courses: [
+                { code: "ART 645", name: "Individual Criticism", credits: 6 },
+                { code: "ART 630", name: "Studio Seminar", credits: 3 },
+                { code: "", name: "Academic or Studio Electives", credits: 6 },
+              ],
+              totalCredits: 15,
+            },
+          ],
+        },
       ],
       curriculum: [
         {
