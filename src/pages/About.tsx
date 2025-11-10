@@ -5,6 +5,13 @@ import { Award, Users, BookOpen, Globe, ExternalLink, GraduationCap } from "luci
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+// Alumni photos
+import MarcusWilliamsPhoto from "@/assets/Alumni/Marcus-Williams.jpg";
+import ElenaRodriguezPhoto from "@/assets/Alumni/Elena-Rodriguez.jpg";
+import DavidParkPhoto from "@/assets/Alumni/David-Park.jpg";
+import AishaOsmanPhoto from "@/assets/Alumni/Aisha Osman.jpg";
+import JamesThompsonPhoto from "@/assets/Alumni/James-Thompson.jpg";
+
 const About = () => {
   useEffect(() => {
     document.title = "About Us - Yale School of Art";
@@ -181,7 +188,7 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Alumni Card 1 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center overflow-hidden">
                     <Users className="h-20 w-20 text-primary/40" />
                   </div>
                   <CardContent className="p-6">
@@ -201,8 +208,12 @@ const About = () => {
 
                 {/* Alumni Card 2 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Users className="h-20 w-20 text-primary/40" />
+                  <div className="aspect-square bg-muted overflow-hidden">
+                    <img
+                      src={MarcusWilliamsPhoto}
+                      alt="Marcus Williams"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Marcus Williams</h3>
@@ -221,8 +232,12 @@ const About = () => {
 
                 {/* Alumni Card 3 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Users className="h-20 w-20 text-primary/40" />
+                  <div className="aspect-square bg-muted overflow-hidden">
+                    <img
+                      src={ElenaRodriguezPhoto}
+                      alt="Elena Rodriguez"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Elena Rodriguez</h3>
@@ -241,8 +256,12 @@ const About = () => {
 
                 {/* Alumni Card 4 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Users className="h-20 w-20 text-primary/40" />
+                  <div className="aspect-square bg-muted overflow-hidden">
+                    <img
+                      src={DavidParkPhoto}
+                      alt="David Park"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">David Park</h3>
@@ -261,8 +280,12 @@ const About = () => {
 
                 {/* Alumni Card 5 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Users className="h-20 w-20 text-primary/40" />
+                  <div className="aspect-square bg-muted overflow-hidden">
+                    <img
+                      src={AishaOsmanPhoto}
+                      alt="Aisha Osman"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Aisha Osman</h3>
@@ -281,8 +304,12 @@ const About = () => {
 
                 {/* Alumni Card 6 */}
                 <Card className="overflow-hidden">
-                  <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <Users className="h-20 w-20 text-primary/40" />
+                  <div className="aspect-square bg-muted overflow-hidden">
+                    <img
+                      src={JamesThompsonPhoto}
+                      alt="James Thompson"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">James Thompson</h3>
