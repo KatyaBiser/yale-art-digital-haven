@@ -239,8 +239,11 @@ const Facilities = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto space-y-12">
-              {filteredFacilities.map((facility, index) => (
-                <Card key={index} className="overflow-hidden">
+              {filteredFacilities.map((facility, index) => {
+                // Convert category to kebab-case for id
+                const facilityId = facility.category.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '');
+                return (
+                <Card key={index} id={facilityId} className="overflow-hidden scroll-mt-20">
                   <CardContent className="p-8">
                     <h2 className="text-3xl font-serif font-bold mb-4">{facility.category}</h2>
                     <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -267,7 +270,8 @@ const Facilities = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
