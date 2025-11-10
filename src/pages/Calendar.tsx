@@ -15,6 +15,89 @@ const Calendar = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeTab, setActiveTab] = useState<string>("upcoming");
   const events = [
+    // New upcoming events (2025)
+    {
+      title: "Meet & Greet: CARE Artists in Residency & New Haven's New Director of Arts, Culture, & Tourism",
+      date: "November 12, 2025",
+      time: "4:00 PM - 6:00 PM EST",
+      location: "Ives Main Library",
+      category: "Lecture",
+      description: "Meet & Greet event featuring CARE Artists in Residence and New Haven's New Director of Arts, Culture, & Tourism. The School of Art along with the CARE program invites you to this special gathering.",
+    },
+    {
+      title: "Visiting Artist Lecture in Graphic Design: Josse Pyl",
+      date: "November 14, 2025",
+      time: "10:30 AM - 12:00 PM EST",
+      location: "Online (Zoom)",
+      category: "Lecture",
+      description: "A lecture by visiting artist Josse Pyl as part of The Fall 2025 Paul Rand Lecture Series. Register online to attend.",
+    },
+    {
+      title: "Public reception for \"Kitchen Sink\" — 1st-Year MFA Show",
+      date: "November 14, 2025",
+      time: "6:00 PM - 8:00 PM EST",
+      location: "Green Hall Gallery, 1156 Chapel Street",
+      category: "Exhibition",
+      description: "Public reception for the 'Kitchen Sink' First Year MFA Show, featuring new work by emerging artists.",
+    },
+    {
+      title: "Admissions Virtual Visit: MFA Program, Admission + Financial Aid Overview",
+      date: "November 20, 2025",
+      time: "1:00 PM - 2:30 PM EST",
+      location: "Online (Zoom)",
+      category: "Admissions",
+      description: "Virtual information session covering the MFA program, admission requirements, and financial aid opportunities. Register online to attend.",
+    },
+    // Upcoming events (2026)
+    {
+      title: "Visiting Artist Lecture: Marina Abramović",
+      date: "January 15, 2026",
+      time: "6:00 PM - 8:00 PM",
+      location: "Hastings Hall",
+      category: "Lecture",
+      description: "Renowned performance artist discusses her groundbreaking work and its impact on contemporary art.",
+    },
+    {
+      title: "MFA Open Studios",
+      date: "February 5, 2026",
+      time: "2:00 PM - 6:00 PM",
+      location: "Green Hall Studios",
+      category: "Exhibition",
+      description: "Visit student studios and view works in progress across all four MFA programs.",
+    },
+    {
+      title: "Graduate Critique: Graphic Design",
+      date: "February 12, 2026",
+      time: "10:00 AM - 4:00 PM",
+      location: "Design Studio, Room 301",
+      category: "Critique",
+      description: "Mid-semester critiques for graphic design MFA candidates.",
+    },
+    {
+      title: "Photography Portfolio Review",
+      date: "February 18, 2026",
+      time: "1:00 PM - 5:00 PM",
+      location: "Photography Studio",
+      category: "Workshop",
+      description: "Professional portfolio review with visiting curators and gallery directors.",
+    },
+    {
+      title: "Annual Thesis Exhibition Opening",
+      date: "March 1, 2026",
+      time: "5:00 PM - 9:00 PM",
+      location: "Yale University Art Gallery",
+      category: "Exhibition",
+      description: "Opening reception for the annual thesis exhibition featuring graduating MFA students.",
+    },
+    {
+      title: "Spring Break Begins",
+      date: "March 20, 2026",
+      time: "All Day",
+      location: "Campus-wide",
+      category: "Academic",
+      description: "Spring recess begins. Studios remain accessible to current students.",
+    },
+    // Past events (2024)
     {
       title: "Visiting Artist Lecture: Marina Abramović",
       date: "October 25, 2024",
