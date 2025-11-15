@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap, Users, Briefcase, Award } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ProgramCard from "@/components/ProgramCard";
 import NewsCard from "@/components/NewsCard";
+import AudienceCard from "@/components/AudienceCard";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 import graphicDesignImg from "@/assets/graphic-design.jpg";
@@ -68,6 +69,57 @@ const Index = () => {
     },
   ];
 
+  const audiences = [
+    {
+      icon: GraduationCap,
+      title: "Prospective Students",
+      description: "Explore our programs and learn how to apply",
+      quickLinks: [
+        { name: "Programs Overview", path: "/programs", description: "Explore our MFA programs" },
+        { name: "Admissions", path: "/admissions", description: "Application requirements & process" },
+        { name: "Tuition & Financial Aid", path: "/tuition", description: "Cost breakdown & scholarships" },
+        { name: "Visit Campus", path: "/contact", description: "Schedule a visit or virtual tour" },
+        { name: "Faculty", path: "/faculty", description: "Meet our distinguished faculty" },
+      ],
+    },
+    {
+      icon: Users,
+      title: "Current Students",
+      description: "Resources and information for enrolled students",
+      quickLinks: [
+        { name: "Academic Calendar", path: "/calendar", description: "Important dates & events" },
+        { name: "Facilities", path: "/facilities", description: "Studios, workshops & equipment" },
+        { name: "Student Works", path: "/works", description: "Showcase & gallery" },
+        { name: "News & Events", path: "/news", description: "Latest updates & happenings" },
+        { name: "Contact", path: "/contact", description: "Get in touch with administration" },
+      ],
+    },
+    {
+      icon: Briefcase,
+      title: "Faculty & Staff",
+      description: "Resources for our teaching community",
+      quickLinks: [
+        { name: "Faculty Directory", path: "/faculty", description: "Meet our faculty members" },
+        { name: "Academic Calendar", path: "/calendar", description: "Important dates & events" },
+        { name: "Facilities", path: "/facilities", description: "Studios & resources" },
+        { name: "News & Events", path: "/news", description: "Latest updates" },
+        { name: "Contact", path: "/contact", description: "Administration contacts" },
+      ],
+    },
+    {
+      icon: Award,
+      title: "Alumni",
+      description: "Stay connected with the Yale Art community",
+      quickLinks: [
+        { name: "Student Works", path: "/works", description: "Recent graduate exhibitions" },
+        { name: "News & Events", path: "/news", description: "Alumni news & events" },
+        { name: "Calendar", path: "/calendar", description: "Upcoming events" },
+        { name: "Faculty", path: "/faculty", description: "Connect with faculty" },
+        { name: "Contact", path: "/contact", description: "Stay in touch" },
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -102,6 +154,32 @@ const Index = () => {
                 Learn More
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Audience Navigation Section */}
+      <section className="py-16 bg-gradient-to-b from-background to-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              Find What You're Looking For
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Select your role to quickly access relevant information and resources
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {audiences.map((audience, index) => (
+              <AudienceCard
+                key={index}
+                icon={audience.icon}
+                title={audience.title}
+                description={audience.description}
+                quickLinks={audience.quickLinks}
+              />
+            ))}
           </div>
         </div>
       </section>
