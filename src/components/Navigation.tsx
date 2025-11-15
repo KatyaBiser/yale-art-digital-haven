@@ -378,8 +378,8 @@ const Navigation = () => {
 
         {/* Search Bar */}
         {searchOpen && (
-          <div className="pb-4 animate-in slide-in-from-top-2">
-            <form onSubmit={handleSearch} className="relative max-w-md">
+          <div className="pb-4 animate-in slide-in-from-top-2 flex justify-end">
+            <form onSubmit={handleSearch} className="relative w-full max-w-md">
               <Input
                 type="search"
                 placeholder="Search for programs, faculty, news..."
